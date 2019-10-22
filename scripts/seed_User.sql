@@ -1,0 +1,3 @@
+INSERT INTO `neat_drinks_db`.`Users` (`username`, `password`, `email`, `address`, `city`, `state`, `zip`, `UserTypeId`) VALUES ('JohnDoe', 'Test123!', 'JohnDoe@test.com', '123', 'Yellow Brick Rd', 'PA', '12345', '2');
+INSERT INTO `neat_drinks_db`.`Users` (`username`, `password`, `email`, `address`, `city`, `state`, `zip`, `UserTypeId`) VALUES ('janeDoe', 'Test123!', 'janeDoe@test.com', '123', 'Yellow Brick Rd', 'PA', '12345', '2');
+INSERT INTO `neat_drinks_db`.`Users` (`username`, `password`, `email`, `address`, `city`, `state`, `zip`, `UserTypeId`) VALUES ('DrinksInc', 'Test123!', 'Test@Test.com', '321', 'Yellow Brick Rd', 'PA', '12345', '1');

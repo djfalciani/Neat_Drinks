@@ -1,0 +1,2 @@
+INSERT INTO `neat_drinks_db`.`Drink_Ingredient` (`createdAt`, `updatedAt`, `DrinkId`, `IngredientId`) VALUES (sysdate(), sysdate(),'1', '2');
+INSERT INTO `neat_drinks_db`.`Drink_Ingredient` (`createdAt`, `updatedAt`, `DrinkId`, `IngredientId`) VALUES (sysdate(), sysdate(),'1', '3');

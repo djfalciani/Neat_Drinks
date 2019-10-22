@@ -1,0 +1,8 @@
+-- DROP DATABASE IF EXISTS exampledb;
+-- CREATE DATABASE exampledb;
+
+-- DROP DATABASE IF EXISTS testdb;
+-- CREATE DATABASE testdb;
+
+DROP DATABASE IF EXISTS neat_drinks_db;
+CREATE DATABASE neat_drinks_db;
