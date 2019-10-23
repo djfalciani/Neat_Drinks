@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import LogoText from "../../components/LogoText";
 import RatingSlider from "../../components/RatingSlider";
 import Footer from "../../components/Footer";
-// import DrinkReviewList from "../../components/DrinkReviewList";
+import DrinkReviewList from "../../components/DrinkReviewList";
 
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
@@ -42,7 +42,7 @@ export default function DrinkReview() {
         <RatingSlider />
       </Paper>
       <Paper className={classes.root}>
-        {/* <DrinkReviewList /> */}
+        <DrinkReviewList />
       </Paper>
       <Footer />
     </div>
