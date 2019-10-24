@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 // import { Button, Box, TextField } from "@material-ui/core/";
 import { makeStyles } from "@material-ui/core/styles";
-
-// import Nav from "../../components/Nav";
 import Logo from "../../components/Logo";
 import RecipeForm from "../../components/RecipeForm";
 import RecipeFormDetail from "../../components/RecipeFormDetail";
@@ -28,9 +28,11 @@ export default function Recipe() {
         <Typography variant="h7" component="h3">
           You can provide a more detailed Recipie Below.
         </Typography>
-      <RecipeFormDetail />
+        <RecipeFormDetail />
       </Paper>
-      <Footer />
+      <Link to="/search">
+        <Footer />
+      </Link>
     </div>
   );
 }

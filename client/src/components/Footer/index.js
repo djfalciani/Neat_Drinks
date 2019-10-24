@@ -20,21 +20,17 @@ const useStyles = makeStyles({
 export default function Footer() {
   const classes = useStyles();
 
-  const handleClick = () => {
-    alert("You clicked the Chip.");
-  };
-
   return (
     <div>
       <BottomNavigation className={classes.root}>
         <Card className={classes.card}>
           <CardMedia
-            onClick={handleClick}
             component="img"
             className={classes.media}
             image="/images/neat-Logo-bird.png"
             title="neat"
-          />
+          >
+          </CardMedia>
         </Card>
       </BottomNavigation>
     </div>
