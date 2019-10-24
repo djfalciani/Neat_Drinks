@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../components/Logo";
 import LoginForm from "../../components/LoginForm";
+import DialogBox from "../../components/Dialog";
 import SubmitButton from "../../components/SubmitButton";
-import NewAccountButton from "../../components/NewAccountButton";
+// import NewAccountButton from "../../components/NewAccountButton";
 import Footer from "../../components/Footer";
 
 export default function Landing() {
@@ -11,8 +12,8 @@ export default function Landing() {
     <div>
       <Logo />
       <LoginForm />
-      <SubmitButton />
-      <NewAccountButton />
+      <SubmitButton />{<br></br>}
+      <DialogBox />
       <Link to="/search">
         <Footer />
       </Link>
