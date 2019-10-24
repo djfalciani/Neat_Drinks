@@ -50,16 +50,7 @@ export default function RecipeForm() {
         variant="filled"
       />
 
-      <TextField
-        id="standard-uncontrolled"
-        // label="drinkBaseOn"
-        defaultValue="classic drink"
-        className={classes.textField}
-        margin="normal"
-        fullWidth
-        helperText="If your drink is a take on a classic cocktail, enter here."
-        variant="outlined"
-      />
+      
       <TextField
         id="drink-description"
         label="Drink Description"
