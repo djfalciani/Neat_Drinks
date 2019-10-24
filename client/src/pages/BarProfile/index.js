@@ -1,19 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import { Button, Box, TextField } from "@material-ui/core/";
 import { makeStyles } from "@material-ui/core/styles";
 
-// import Nav from "../../components/Nav";
 import LogoText from "../../components/LogoText";
 import NewDrinkButton from "../../components/NewDrinkButton";
 import Footer from "../../components/Footer";
-
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 // import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 // import DrinkCardList from "../../components/DrinkCardList";
 // import { typography } from "@material-ui/system";
-// import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,7 +46,9 @@ export default function User() {
       <Paper className={classes.root}>
         {/* <DrinkCardList /> */}
       </Paper>
-      <Footer />
+      <Link to="/search">
+        <Footer />
+      </Link>
     </div>
   );
 }

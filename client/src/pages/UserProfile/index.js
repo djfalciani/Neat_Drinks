@@ -1,8 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import { Button, Box, TextField } from "@material-ui/core/";
 import { makeStyles } from "@material-ui/core/styles";
-
-// import Nav from "../../components/Nav";
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
 import DrinkCardList from "../../components/DrinkCardList";
@@ -36,7 +35,9 @@ export default function User() {
       <Paper className={classes.root}>
         <DrinkCardList/>
       </Paper>
-      <Footer />
+      <Link to="/search">
+        <Footer />
+      </Link>
     </div>
   );
 }
