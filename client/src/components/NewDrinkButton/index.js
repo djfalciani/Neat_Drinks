@@ -11,21 +11,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
   
-  export default function NewAccountButton() {
+  export default function NewDrinkButton() {
     const classes = useStyles();
-  
-    const handleClick = () => {
-      alert("You want to add a drink");
-    };
   
     return (
       <div>
         <Button className={classes.button}
-        onClick={handleClick}
-       fullWidth
+        fullWidth
         href="/recipe"
         color="primary"
-        varient="outline"
+        variant="outline"
         >Add Drink</Button>
 
       </div>

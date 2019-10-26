@@ -17,10 +17,13 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         },
+        password: DataTypes.STRING,
         address: DataTypes.STRING,
         city: DataTypes.STRING,
         state: DataTypes.STRING,
         zip: DataTypes.STRING,
+        display_name: DataTypes.STRING,
+        Website: DataTypes.STRING,
     });
 
     // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
@@ -39,6 +42,8 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         });
+
+        User.belongsToMany(models.Drink, {through: 'Drink_User_Rating'});
     };
 
     return User;
