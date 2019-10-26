@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import { Button, Box, TextField } from "@material-ui/core/";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -10,8 +10,6 @@ import DrinkCardList from "../../components/DrinkCardList";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
-const [ingredient, setIngrdient] = useState({});
-
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -19,24 +17,30 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-function User()  {
+function User() {
   const classes = useStyles();
-  useEffect(() =>  {
+  const [loggedUser, setLoggedUser] = useState({});
+  useEffect(() => {
     async function fetchData() {
-      const ingredients$ = await fetch("/api/ingredients");
-      const ingredients = await ingredients$.json();
-      console.log(ingredients);
+      const loggedUser$ = await fetch("/api/user");
+      const fetchedUser = await loggedUser$.json();
+      // useState(loggedUser);
+      // console.log(loggedUser.username);
+      console.log(fetchedUser.username);
+
+      // const myguy = loggedUser.username;
+      setLoggedUser(fetchedUser);
     }
     fetchData();
-}, [ingredient])
+  }, []);
+
   return (
     <div>
+      {/* {console.log("hi")} */}
       <LogoText />
       <Paper className={classes.root}>
-        <Typography variant="h5" component="h1" color="primary">
-          Tom Cruise
-        </Typography>
+        {loggedUser.username}
+        <Typography variant="h5" component="h1" color="primary"></Typography>
         <Typography variant="h7" component="h5" color="secondary">
           …enjoys getting caught in the rain
         </Typography>
