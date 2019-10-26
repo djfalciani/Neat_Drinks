@@ -1,8 +1,6 @@
 import React from "react";
-// import { Button, Box, TextField } from "@material-ui/core/";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-
-// import Nav from "../../components/Nav";
 import Logo from "../../components/Logo";
 import RecipeForm from "../../components/RecipeForm";
 import RecipeFormDetail from "../../components/RecipeFormDetail";
@@ -17,20 +15,23 @@ const useStyles = makeStyles(theme => ({
     margin: 3
   }
 }));
+
 export default function Recipe() {
   const classes = useStyles();
   return (
     <div>
       <Logo />
-      <RecipeForm />
+      <RecipeForm />{<br></br>}{<br></br>}
       <Divider />
       <Paper className={classes.root}>
         <Typography variant="h7" component="h3">
-          You can provide a more detailed Recipie Below.
+          <em>Recipe detail</em>
         </Typography>
-      <RecipeFormDetail />
+        <RecipeFormDetail />
       </Paper>
-      <Footer />
+      <Link to="/search">
+        <Footer />
+      </Link>
     </div>
   );
 }

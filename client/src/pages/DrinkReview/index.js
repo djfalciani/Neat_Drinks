@@ -1,7 +1,7 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
-// import Nav from "../../components/Nav";
+import { makeStyles } from "@material-ui/core/styles";
 import LogoText from "../../components/LogoText";
 import RatingSlider from "../../components/RatingSlider";
 import Footer from "../../components/Footer";
@@ -44,7 +44,9 @@ export default function DrinkReview() {
       <Paper className={classes.root}>
         <DrinkReviewList />
       </Paper>
-      <Footer />
+      <Link to="/search">
+        <Footer />
+      </Link>
     </div>
   );
 }
