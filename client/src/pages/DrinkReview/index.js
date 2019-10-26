@@ -8,7 +8,6 @@ import Footer from "../../components/Footer";
 import DrinkReviewList from "../../components/DrinkReviewList";
 
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
