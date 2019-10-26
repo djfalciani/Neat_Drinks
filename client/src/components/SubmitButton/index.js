@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-handleButtonClick = event => {};
 
 export default function SubmitButton() {
   const classes = useStyles();

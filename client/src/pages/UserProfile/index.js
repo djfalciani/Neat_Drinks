@@ -26,7 +26,7 @@ function User() {
       const fetchedUser = await loggedUser$.json();
       // useState(loggedUser);
       // console.log(loggedUser.username);
-      console.log(fetchedUser.username);
+      console.log(fetchedUser);
 
       // const myguy = loggedUser.username;
       setLoggedUser(fetchedUser);
@@ -39,8 +39,10 @@ function User() {
       {/* {console.log("hi")} */}
       <LogoText />
       <Paper className={classes.root}>
-        {loggedUser.username}
-        <Typography variant="h5" component="h1" color="primary"></Typography>
+        <Typography variant="h5" component="h1" color="primary">
+          {" "}
+          {loggedUser.display_name}
+        </Typography>
         <Typography variant="h7" component="h5" color="secondary">
           …enjoys getting caught in the rain
         </Typography>
