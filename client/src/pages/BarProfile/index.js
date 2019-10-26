@@ -54,6 +54,11 @@ export default function User() {
           <NewDrinkButton />
         </Grid>
       </Paper>
+
+      <Paper className={classes.root}>
+        {/* <DrinkCardList /> */}
+      </Paper>
+
       <Link to="/search">
         <Footer />
       </Link>
