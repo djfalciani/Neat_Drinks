@@ -1,0 +1,4 @@
+INSERT INTO `neat_drinks_db`.`Drink_User_Ratings` (`Rating`, `Review`, `createdAt`, `updatedAt`, `DrinkId`, `UserId`) VALUES ('100', 'Jane Review - Martini', sysdate(), Sysdate(), '5', '2');
+INSERT INTO `neat_drinks_db`.`Drink_User_Ratings` (`Rating`, `Review`, `createdAt`, `updatedAt`, `DrinkId`, `UserId`) VALUES ('100', 'John Review - Manhattan', sysdate(), Sysdate(), '2', '1');
+INSERT INTO `neat_drinks_db`.`Drink_User_Ratings` (`Rating`, `Review`, `createdAt`, `updatedAt`, `DrinkId`, `UserId`) VALUES ('50', 'Jane Review - Manhattan', sysdate(), sysdate(), '2', '2');
+INSERT INTO `neat_drinks_db`.`Drink_User_Ratings` (`Rating`, `Review`, `createdAt`, `updatedAt`, `DrinkId`, `UserId`) VALUES ('50', 'John Review - Martini', sysdate(), sysdate(), '5', '1');

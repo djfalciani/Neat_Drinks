@@ -1,22 +1,20 @@
 module.exports = function(sequelize, DataTypes) {
     const User = sequelize.define("User", {
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        password: DataTypes.STRING,
         email: {
             type: DataTypes.STRING,
-            unique: true,
             validate: {
-              isEmail: true
+                unique: true,
+                allowNull: false,
+                isEmail: true
             }
         },
+        password: DataTypes.STRING,
         address: DataTypes.STRING,
         city: DataTypes.STRING,
         state: DataTypes.STRING,
         zip: DataTypes.STRING,
+        display_name: DataTypes.STRING,
+        Website: DataTypes.STRING,
     });
 
     User.associate = function(models) {
@@ -25,6 +23,8 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         });
+
+        User.belongsToMany(models.Drink, {through: 'Drink_User_Rating'});
     };
 
     return User;
