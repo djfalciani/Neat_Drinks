@@ -1,0 +1,5 @@
+INSERT INTO `neat_drinks_db`.`Drinks` (`dislpay_name`, `ingredient_Detail`, `instruction`, `rating`, `createdAt`, `updatedAt`, `UserId`) VALUES ('Rum & Coke', 'ingredient Detial', 'Instructions', '50', sysdate(), sysdate(), '3');
+INSERT INTO `neat_drinks_db`.`Drinks` (`dislpay_name`, `ingredient_Detail`, `instruction`, `rating`, `createdAt`, `updatedAt`, `UserId`) VALUES ('Manhattan', 'ingredient Detial', 'Instructions', '75', sysdate(), sysdate(), '3');
+INSERT INTO `neat_drinks_db`.`Drinks` (`dislpay_name`, `ingredient_Detail`, `instruction`, `rating`, `createdAt`, `updatedAt`, `UserId`) VALUES ('Mojito', 'ingredient Detial', 'Instructions', '90', sysdate(), sysdate(), '3');
+INSERT INTO `neat_drinks_db`.`Drinks` (`dislpay_name`, `ingredient_Detail`, `instruction`, `rating`, `createdAt`, `updatedAt`, `UserId`) VALUES ('Gin & Tonic', 'ingredient Detial', 'Instructions', '35', sysdate(), sysdate(), '3');
+INSERT INTO `neat_drinks_db`.`Drinks` (`dislpay_name`, `ingredient_Detail`, `instruction`, `rating`, `createdAt`, `updatedAt`, `UserId`) VALUES ('Martini', 'ingredient Detial', 'Instructions', '45', sysdate(), sysdate(), '3');
