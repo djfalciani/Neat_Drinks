@@ -5,9 +5,9 @@ INSERT INTO `neat_drinks_db`.`UserTypes` (`display_name`, `active`, `createdAt`,
 INSERT INTO `neat_drinks_db`.`UserTypes` (`display_name`, `active`, `createdAt`, `updatedAt`) VALUES ('Personal', 'Y', CURRENT_DATE(), CURRENT_DATE());
 
 -- Users
-INSERT INTO `neat_drinks_db`.`Users` (`email`, `password`, `address`, `city`, `state`, `zip`, `display_name`, `Website`, `createdAt`, `updatedAt`, `UserTypeId`) VALUES ('JohnDoe@test.com', 'Test123!', '123', 'Yellow Brick Rd', 'PA', '12345', 'John Doe', NULL, sysdate(), sysdate(), '2');
-INSERT INTO `neat_drinks_db`.`Users` (`email`, `password`, `address`, `city`, `state`, `zip`, `display_name`, `Website`, `createdAt`, `updatedAt`, `UserTypeId`) VALUES ('janeDoe@test.com', 'Test123!', '123', 'Yellow Brick Rd', 'PA', '12345', 'Jane Doe', NULL, sysdate(), sysdate(), '2');
-INSERT INTO `neat_drinks_db`.`Users` (`email`, `password`, `address`, `city`, `state`, `zip`, `display_name`, `Website`, `createdAt`, `updatedAt`, `UserTypeId`) VALUES ('DrinksInc@Test.com', 'Test123!', '321', 'Yellow Brick Rd', 'PA', '12345', 'Drinks Inc.', 'www.google.com', sysdate(), sysdate(), '1');
+INSERT INTO `neat_drinks_db`.`Users` (`email`, `password`, `address`, `city`, `state`, `zip`, `display_name`, `Website`, `tag_line`, `createdAt`, `updatedAt`, `UserTypeId`) VALUES ('JohnDoe@test.com', 'Test123!', '123', 'Yellow Brick Rd', 'PA', '12345', 'John Doe', NULL, 'John - Tag Line', sysdate(), sysdate(), '2');
+INSERT INTO `neat_drinks_db`.`Users` (`email`, `password`, `address`, `city`, `state`, `zip`, `display_name`, `Website`, `tag_line`, `createdAt`, `updatedAt`, `UserTypeId`) VALUES ('janeDoe@test.com', 'Test123!', '123', 'Yellow Brick Rd', 'PA', '12345', 'Jane Doe', NULL,  'Jane - Tag Line', sysdate(), sysdate(), '2');
+INSERT INTO `neat_drinks_db`.`Users` (`email`, `password`, `address`, `city`, `state`, `zip`, `display_name`, `Website`, `tag_line`, `createdAt`, `updatedAt`, `UserTypeId`) VALUES ('DrinksInc@Test.com', 'Test123!', '321', 'Yellow Brick Rd', 'PA', '12345', 'Drinks Inc.', 'www.google.com', 'Drink Inc. - Tag Line',  sysdate(), sysdate(), '1');
 
 -- Drinks
 INSERT INTO `neat_drinks_db`.`Drinks` (`dislpay_name`, `ingredient_Detail`, `instruction`, `rating`, `createdAt`, `updatedAt`, `UserId`) VALUES ('Rum & Coke', 'ingredient Detial', 'Instructions', '50', sysdate(), sysdate(), '3');

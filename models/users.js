@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         zip: DataTypes.STRING,
         display_name: DataTypes.STRING,
         Website: DataTypes.STRING,
+        tag_line: DataTypes.STRING,
     });
 
     User.associate = function(models) {
