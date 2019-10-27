@@ -11,10 +11,10 @@ import Checkbox from "../../components/Checkbox";
 
 const useStyles = makeStyles(theme => ({
   root: {
-      padding: theme.spacing(2)
+    padding: theme.spacing(2)
   },
   content: {
-      marginBottom: 50
+    marginBottom: 2
   }
 }));
 
@@ -37,54 +37,56 @@ export default function DialogBox() {
 
   return (
     <div className={classes.root}>
-      <Button variant="outlined" 
-      color="primary" 
-      onClick={handleClickOpen}
-      fullWidth
+      <Button
+        variant="outlined"
+        color="primary"
+        onClick={handleClickOpen}
+        fullWidth
       >
-        create an account
+        create account
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Account creation</DialogTitle>
+        <DialogTitle id="form-dialog-title">Create Account</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
-            margin="dense"
+            margin="normal"
             id="name"
             label="email address"
             type="email"
             fullWidth
           />
           <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="username"
-            type="username"
-            fullWidth
-          />
-          <TextField
             className={classes.content}
-            autoFocus
-            margin="dense"
-            id="name"
+            margin="normal"
+            id="password"
             label="password"
             type="password"
             fullWidth
           />
-          <DialogContentText>business or personal?</DialogContentText> 
+        
+          what would you like your user name to be?
+          <TextField
+            margin="wide"
+            id="displayname"
+            label="username"
+            type="username"
+            variant="outlined"
+            fullWidth
+          />
+          <DialogContentText>business or personal?</DialogContentText>
           <Checkbox />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="secondary">
             cancel
           </Button>
-          <Button onClick={handleSubmit} color="primary">
-            submit
+          <Button onClick={handleSubmit} color="error">
+            create
           </Button>
         </DialogActions>
       </Dialog>
