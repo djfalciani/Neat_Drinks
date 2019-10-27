@@ -22,6 +22,7 @@ export default function DrinkReview() {
   const [drink, setDrink] = useState({});
   const [drinkMaker, setdrinkMaker] = useState({});
   const [DrinkReviews, SetDrinkReviews] = useState({});
+  const [DrinkReviews2, SetDrinkReviews2] = useState({});
   const [drinkAverage, SetDrinkAverage] = useState({ avg: 0 });
 
   useEffect(() => {
@@ -34,10 +35,17 @@ export default function DrinkReview() {
       // console.log(fetchedDrink);
 
       setDrink(fetchedDrink);
+      
       // ? Get the drinks reviews
       const reviews$ = await fetch(`api/reviews/${loadDrinkId}`);
       const fetchedReviews = await reviews$.json();
       SetDrinkReviews(fetchedReviews);
+      
+      // Get Drinks Reviews v2 - returns back all drink_User_Rating data + User_Name & Drink_Name
+      const reviews2$ = await fetch(`api/reviews2/${loadDrinkId}`);
+      const fetchedReviews2 = await reviews2$.json();
+      // console.log(fetchedReviews2);
+      SetDrinkReviews2(fetchedReviews2);
 
       // ? Get the Drink Maker
       const maker$ = await fetch(`api/user/${userSearch}`);
