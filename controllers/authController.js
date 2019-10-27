@@ -1,7 +1,36 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
-const router = require("express").Router();
+const axios = require("axios");
+// const router = require("express").Router();
+
+module.exports = {
+    login: function(req,res) {
+        const email = req.body.email;
+        const password = req.body.password;
+
+        console.log(`AuthController: email: ${email} & password: ${passport}`);
+        let retVal = `AuthController: email: ${email} & password: ${passport}`;
+        return retVal;
+
+        // axios.post('/user', {
+        //     firstName: 'Fred',
+        //     lastName: 'Flintstone'
+        //   })
+        //   .then(function (response) {
+        //     console.log(response);
+        //   })
+        //   .catch(function (error) {
+        //     console.log(error);
+        //   });
+
+        // axios.post("")
+        // $.post("/api/login", {
+        //     email: email,
+        //     password: password
+        //   })
+    }
+};
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
