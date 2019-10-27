@@ -1,14 +1,13 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
-// import Nav from "../../components/Nav";
+import { makeStyles } from "@material-ui/core/styles";
 import LogoText from "../../components/LogoText";
 import RatingSlider from "../../components/RatingSlider";
 import Footer from "../../components/Footer";
 import DrinkReviewList from "../../components/DrinkReviewList";
 
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
@@ -44,7 +43,9 @@ export default function DrinkReview() {
       <Paper className={classes.root}>
         <DrinkReviewList />
       </Paper>
-      <Footer />
+      <Link to="/search">
+        <Footer />
+      </Link>
     </div>
   );
 }

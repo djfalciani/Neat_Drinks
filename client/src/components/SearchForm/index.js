@@ -1,9 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
+// import FormGroup from "@material-ui/core/FormGroup";
+// import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import Switch from "@material-ui/core/Switch";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
@@ -54,7 +54,7 @@ export default function RecipeForm() {
             required
             id="filled-required"
             label="SearchTerm"
-            defaultValue="Drink Search"
+            defaultValue="search by drink name"
             className={classes.textField}
             margin="normal"
             fullWidth

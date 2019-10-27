@@ -1,11 +1,9 @@
-import React from "react";
-// import { Button, Box, TextField } from "@material-ui/core/";
-import { makeStyles } from "@material-ui/core/styles";
-
-// import Nav from "../../components/Nav";
+import React, { useEffect, useState } from "react";
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
 import DrinkCardList from "../../components/DrinkCardList";
+
+import { makeStyles } from "@material-ui/core/styles";
 
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -16,27 +14,48 @@ const useStyles = makeStyles(theme => ({
     margin: 3
   }
 }));
-export default function User() {
+
+function User() {
   const classes = useStyles();
+  const [loggedUser, setLoggedUser] = useState({});
+  const [ratedDrinks, setRatedDrinks] = useState({});
+
+  useEffect(() => {
+    async function fetchData() {
+      // Get the user info
+      const loggedUser$ = await fetch("/api/user");
+      const fetchedUser = await loggedUser$.json();
+      // console.log(fetchedUser);
+
+      setLoggedUser(fetchedUser);
+
+      const ratedDrinks$ = await fetch("api/user/rated");
+      const fetchedDrinks = await ratedDrinks$.json();
+      // console.log(fetchedDrinks);
+      setRatedDrinks(fetchedDrinks);
+    }
+    fetchData();
+  }, []);
+
   return (
     <div>
+      {/* {console.log("hi")} */}
       <LogoText />
-
       <Paper className={classes.root}>
         <Typography variant="h5" component="h1" color="primary">
-          Tom Cruise
+          {loggedUser.display_name}
         </Typography>
         <Typography variant="h7" component="h5" color="secondary">
-          …enjoys getting caught in the rain
+          {loggedUser.tag_line}
         </Typography>
       </Paper>
+      <Paper className={classes.root}>Your rated Drinks are below</Paper>
       <Paper className={classes.root}>
-        Your rated Drinks are below
-      </Paper>
-      <Paper className={classes.root}>
-        <DrinkCardList/>
+        <DrinkCardList 
+        drinksIveRated = {ratedDrinks}/>
       </Paper>
       <Footer />
     </div>
   );
 }
+export default User;

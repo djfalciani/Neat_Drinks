@@ -3,26 +3,22 @@ const bcrypt = require("bcryptjs");
 
 module.exports = function(sequelize, DataTypes) {
     const User = sequelize.define("User", {
-        username: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
-          },
-        email: {
-            type: DataTypes.STRING,
-            unique: true,
             validate: {
-              isEmail: true
+                isEmail: true
             }
         },
+        password: DataTypes.STRING,
         address: DataTypes.STRING,
         city: DataTypes.STRING,
         state: DataTypes.STRING,
         zip: DataTypes.STRING,
+        display_name: DataTypes.STRING,
+        Website: DataTypes.STRING,
+        tag_line: DataTypes.STRING,
     });
 
     // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
@@ -41,6 +37,8 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         });
+
+        User.belongsToMany(models.Drink, {through: 'Drink_User_Rating'});
     };
 
     return User;

@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
         instruction: DataTypes.TEXT,
         rating: DataTypes.INTEGER,
         image: DataTypes.STRING,
-        last_modified_date: DataTypes.DATE,
     });
     
     // A drink belongs to a single user...
@@ -20,6 +19,9 @@ module.exports = function(sequelize, DataTypes) {
         });
 
         Drink.belongsToMany(models.Ingredient, {through: 'Drink_Ingredient'});
+        Drink.belongsToMany(models.User, {through: 'Drink_User_Rating'});
+        
+
     };
 
     return Drink;

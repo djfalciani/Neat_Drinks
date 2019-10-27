@@ -1,3 +1,4 @@
+  
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -61,7 +62,21 @@ export default function RecipeFormDetail() {
   return (
     <form className={classes.container} noValidate autoComplete="on">
       <Grid container spacing={1}>
+        <Grid item xs={12} sm={12}>
+          
+        <TextField
+            id="standard-uncontrolled"
+            // label="drinkBaseOn"
+            defaultValue="classic drink"
+            className={classes.textField}
+            margin="normal"
+            fullWidth
+            helperText="If your drink is a take on a classic cocktail, enter here."
+            variant="outlined"
+          />
+        </Grid>
         <Grid item xs={12} sm={6}>
+          
           <TextField
             id="standard-select-currency"
             select
@@ -155,23 +170,19 @@ export default function RecipeFormDetail() {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-        
-        
           <Grid item xs={12} sm={12}>
-          <TextField
-        id="drink-instructins"
-        label="Drink Instructions"
-        className={classes.textField}
-        margin="normal"
-        variant="outlined"
-        multiline
-        fullWidth
-        rows="4"
-        helperText="How do you make this thing?
+            <TextField
+              id="drink-instructins"
+              label="Drink Instructions"
+              className={classes.textField}
+              margin="normal"
+              variant="outlined"
+              multiline
+              fullWidth
+              rows="4"
+              helperText="How do you make this thing?
         "
-      />
-
-
+            />
           </Grid>
         </Grid>
       </Grid>

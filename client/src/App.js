@@ -10,7 +10,7 @@ import Search from "./pages/Search";
 import Recipe from "./pages/Recipe";
 import UserProfile from "./pages/UserProfile";
 import BarProfile from "./pages/BarProfile";
-// import DrinkReview from "./pages/DrinkReview";
+import DrinkReview from "./pages/DrinkReview";
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/recipe" component={Recipe} />
         <Route exact path="/user" component={UserProfile} />
         <Route exact path="/bar" component={BarProfile} />
-        {/* <Route exact path="/drinkreview" component={DrinkReview} /> */}
+        <Route exact path="/drinkreview" component={DrinkReview} />
       </Container>
     </Router>
   );
