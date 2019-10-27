@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function DrinkCard(props) {
   const classes = useStyles();
-  console.log(props);
+  
 
   return (
     <ListItem alignItems="flex-start">
@@ -47,7 +47,7 @@ export default function DrinkCard(props) {
         <Avatar alt="" src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png" />
       </ListItemAvatar>
       <ListItemText
-        primary={props.id}
+        primary={props.drinkName}
         secondary={
           <React.Fragment>
             <Typography
@@ -56,7 +56,7 @@ export default function DrinkCard(props) {
               className={classes.inline}
               color="textSecondary"
             >
-              {props.drinkReview}
+              {props.instructions}
             </Typography>
           </React.Fragment>
         }

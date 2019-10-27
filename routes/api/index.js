@@ -7,6 +7,7 @@ router.route("/ingredients").get(drinksController.findAllIngredients);
 // .post(drinksController.create);
 router.route("/user/:id").get(usersController.findOneUser);
 router.route("/userrated/:id").get(usersController.findUserRatedDrinks);
+router.route("/usercreated/:id").get(usersController.findUserCreatedDrinks);
 // Matches with "/api/posts/:id"
 // router
 //   .route("/:id")
