@@ -15,45 +15,23 @@ const useStyles = makeStyles(theme => ({
 
 export default function DrinkCardList(props) {
   const classes = useStyles();
-  const arr = props.drinksIveRated;
-  console.log("HILO");
-
-  var Iratings = Object.keys(props.drinksIveRated).map(function(key) {
-    console.log(arr[key]);
-  });
-
-  console.log(typeof Iratings);
+  const arr = props.barMenu;
+  console.log(arr);
 
   return (
     <List className={classes.root}>
       {/* {console.log(props.drinksIveRated)} */}
 
-      {Object.keys(props.drinksIveRated).map(function(key) {
+      {Object.keys(props.barMenu).map(function(key) {
         return (
           <DrinkCard
-            id={arr[key].DrinkId}
-            drinkReview={arr[key].Review}
-            drinkRating={arr[key].Rating}
+            id={arr[key]._id}
+            instructions={arr[key].instruction}
+            drinkRating={arr[key].rating}
+            drinkName={arr[key].dislpay_name}
           />
         );
       })}
-      {/* {this.state.friends.map(friend => (
-        <FriendCard
-          removeFriend={this.removeFriend}
-          id={friend.id}
-          key={friend.id}
-          name={friend.name}
-          image={friend.image}
-          occupation={friend.occupation}
-          location={friend.location}
-        />
-      ))} */}
-
-      {/* {props.drinksIveRated.map(drink => (
-        <DrinkCard id={drink.id} />
-      ))} */}
-
-      <DrinkCard />
     </List>
   );
 }

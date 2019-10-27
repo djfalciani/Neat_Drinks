@@ -5,10 +5,8 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
 import Avatar from "@material-ui/core/Avatar";
 import ListItem from "@material-ui/core/ListItem";
-// import abstractlogo from "../../../public/images/neat-Logo-abstract.png"
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase";
 import { getThemeProps } from "@material-ui/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -37,9 +35,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function DrinkCard(props) {
+export default function UserDrinkReviewCard(props) {
   const classes = useStyles();
-  
+  // console.log(props);
 
   return (
     <ListItem alignItems="flex-start">
@@ -47,7 +45,7 @@ export default function DrinkCard(props) {
         <Avatar alt="" src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png" />
       </ListItemAvatar>
       <ListItemText
-        primary={props.drinkName}
+        primary={props.id}
         secondary={
           <React.Fragment>
             <Typography
@@ -56,7 +54,7 @@ export default function DrinkCard(props) {
               className={classes.inline}
               color="textSecondary"
             >
-              {props.instructions}
+              {props.drinkReview}
             </Typography>
           </React.Fragment>
         }
