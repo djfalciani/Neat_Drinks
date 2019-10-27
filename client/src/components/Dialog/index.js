@@ -11,10 +11,10 @@ import Checkbox from "../../components/Checkbox";
 
 const useStyles = makeStyles(theme => ({
   root: {
-      padding: theme.spacing(2)
+    padding: theme.spacing(2)
   },
   content: {
-      marginBottom: 50
+    marginBottom: 50
   }
 }));
 
@@ -37,10 +37,11 @@ export default function DialogBox() {
 
   return (
     <div className={classes.root}>
-      <Button variant="outlined" 
-      color="primary" 
-      onClick={handleClickOpen}
-      fullWidth
+      <Button
+        variant="outlined"
+        color="primary"
+        onClick={handleClickOpen}
+        fullWidth
       >
         create an account
       </Button>
@@ -63,6 +64,14 @@ export default function DialogBox() {
             autoFocus
             margin="dense"
             id="name"
+            label="password"
+            type="password"
+            fullWidth
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
             label="username"
             type="username"
             fullWidth
@@ -72,11 +81,12 @@ export default function DialogBox() {
             autoFocus
             margin="dense"
             id="name"
-            label="password"
-            type="password"
+            label="website or tagline"
+            type="text"
             fullWidth
           />
-          <DialogContentText>business or personal?</DialogContentText> 
+
+          <DialogContentText>business or personal?</DialogContentText>
           <Checkbox />
         </DialogContent>
         <DialogActions>
