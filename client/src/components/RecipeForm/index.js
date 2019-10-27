@@ -1,11 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-// import FormGroup from "@material-ui/core/FormGroup";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Paper from "@material-ui/core/Paper";
-// import Divider from "@material-ui/core/Divider";
-// import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+// import axios from "axios"
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -26,39 +23,40 @@ const useStyles = makeStyles(theme => ({
 
 export default function RecipeForm() {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    name: "Cat in the Hat",
-    age: "",
-    multiline: "Controlled",
-    currency: "EUR"
-  });
+  const [drinkName, setDrinkName] = useState({});
+  const [drinkInstructions, setDrinkInstructions] = useState({});
 
-  const handleChange = name => event => {
-    setValues({ ...values, [name]: event.target.value });
+  // const handleChange = name => event => {
+  //   setValues({ ...values, [name]: event.target.value });
+
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    // console.log(event.target.drinkName);
+    const thisVariable = { drinkName };
+    setDrinkName(drinkName)
+    alert(thisVariable);
+    // const newRecipe = {
+    //    name:
+    //    description:
+    // }
+
+    // axios.post("/api/drink", newRecipe)
+    // .then()
   };
 
   return (
     <form className={classes.container} noValidate autoComplete="on">
       <TextField
         required
-        id="filled-required"
+        value={drinkName}
+        onChange={e => setDrinkName(e.target.value)}
+        id="drink-name"
         label="Drink Name"
         className={classes.textField}
         margin="normal"
         fullWidth
         variant="filled"
-      />
-
-      
-      <TextField
-        id="standard-uncontrolled"
-        // label="drinkBaseOn"
-        placeholder="Manhattan, pina colada, etc"
-        className={classes.textField}
-        margin="normal"
-        fullWidth
-        helperText="If your drink is a take on a classic cocktail, enter here."
-        variant="outlined"
+        name="drinkName"
       />
       <TextField
         id="drink-description"
@@ -71,6 +69,17 @@ export default function RecipeForm() {
         rows="4"
         // helperText="Place your Drink Recipe here"
       />
+      <Button
+        onClick={handleFormSubmit}
+        name="drink-recipe-button"
+        variant="contained"
+        fullWidth
+        color="primary"
+        type="submit"
+        className={classes.button}
+      >
+        Submit
+      </Button>
     </form>
   );
 }

@@ -6,7 +6,7 @@ const usersController = require("../../controllers/usersController");
 router.route("/ingredients").get(drinksController.findAllIngredients);
 // .post(drinksController.create);
 router.route("/user").get(usersController.findOneUser);
-
+router.route("/user/rated").get(usersController.findUserRatedDrinks);
 // Matches with "/api/posts/:id"
 // router
 //   .route("/:id")

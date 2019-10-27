@@ -2,16 +2,14 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 import Avatar from "@material-ui/core/Avatar";
 import ListItem from "@material-ui/core/ListItem";
-
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
+// import abstractlogo from "../../../public/images/neat-Logo-abstract.png"
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
+import { getThemeProps } from "@material-ui/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,16 +37,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function DrinkCard() {
+export default function DrinkCard(props) {
   const classes = useStyles();
+  console.log(props);
 
   return (
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
-        <Avatar alt="Drink Name" src="" />
+        <Avatar alt="" src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png" />
       </ListItemAvatar>
       <ListItemText
-        primary="Piñacolada"
+        primary={props.id}
         secondary={
           <React.Fragment>
             <Typography
@@ -57,58 +56,12 @@ export default function DrinkCard() {
               className={classes.inline}
               color="textSecondary"
             >
-              If you like making love at Midnight!
+              {props.drinkReview}
             </Typography>
           </React.Fragment>
         }
       />
-      <ListItemAvatar>
-        {/* <Avatar alt="Drink Score" src="" value="99.5"/> */}
-        99.5
-      </ListItemAvatar>
-    
+      <ListItemAvatar>{props.drinkRating}</ListItemAvatar>
     </ListItem>
-
-    // <div className={classes.root}>
-    //   <Box border={1} borderColor="primary.main" borderRadius={4}>
-    //     <Paper
-    //       border={1}
-    //       borderColor="primary.main"
-    //       borderRadius={16}
-    //       className={classes.paper}
-    //     >
-    //       <Grid container spacing={1}>
-    //         <Grid item>
-    //           <ButtonBase className={classes.image}>
-    //             <img
-    //               className={classes.img}
-    //               alt="complex"
-    //               src="/images/neat-Logo-abstract.png"
-    //             />
-    //           </ButtonBase>
-    //         </Grid>
-    //         <Grid item xs={12} sm container>
-    //           <Grid item xs container direction="column" spacing={2}>
-    //             <Grid item xs>
-    //               <Typography gutterBottom variant="subtitle1">
-    //                 Piñacolada
-    //               </Typography>
-    //               <Typography variant="body2" gutterBottom>
-    //                 If you're not into yoga, if you have half a brain
-    //               </Typography>
-    //               <Typography variant="body2" color="textSecondary">
-    //                 Rum • Pinapple Juice • Coconut
-    //               </Typography>
-    //             </Grid>
-    //             {/* <CustomizedSlider></CustomizedSlider> */}
-    //           </Grid>
-    //           <Grid item>
-    //             <Typography variant="subtitle1">89.5</Typography>
-    //           </Grid>
-    //         </Grid>
-    //       </Grid>
-    //     </Paper>
-    //   </Box>
-    // </div>
   );
 }

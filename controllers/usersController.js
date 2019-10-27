@@ -14,5 +14,17 @@ module.exports = {
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
     console.log("Hello you are in the find one User call");
+  },
+
+  findUserRatedDrinks: function(req, res) {
+    db.Drink_User_Rating.findAll({
+      where: {
+        UserId: 2
+        // req.params.id
+      }
+    })
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+    console.log("Hello you are in the find one User call");
   }
 };
