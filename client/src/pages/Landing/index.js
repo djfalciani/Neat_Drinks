@@ -14,9 +14,7 @@ export default function Landing() {
       <LoginForm />
       <SubmitButton />{<br></br>}
       <DialogBox />
-      <Link to="/search">
         <Footer />
-      </Link>
     </div>
   );
 }

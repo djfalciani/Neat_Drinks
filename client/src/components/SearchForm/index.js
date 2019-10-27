@@ -70,7 +70,7 @@ export default function RecipeForm() {
         </Typography>
       </Paper>
       <Paper className={classes.root}>
-        <DrinkCardList />
+        {/* <DrinkCardList /> */}
       </Paper>
     </Paper>
   );

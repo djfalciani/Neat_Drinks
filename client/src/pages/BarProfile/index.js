@@ -66,7 +66,7 @@ export default function BarProfile() {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <DrinkCardList barMenu={barsMenu}/>
+            <DrinkCardList barMenu={barsMenu} />
           </Grid>
           <NewDrinkButton />
         </Grid>
@@ -74,9 +74,7 @@ export default function BarProfile() {
 
       <Paper className={classes.root}>{/* <DrinkCardList /> */}</Paper>
 
-      <Link to="/search">
-        <Footer />
-      </Link>
+      <Footer />
     </div>
   );
 }
