@@ -15,6 +15,7 @@ export default function Landing() {
   function handleClick() {
     // textInput.current.focus();
     let test = textInput.current.value;
+    console.log("btn Clicked");
     alert(test);
   }
   
@@ -39,8 +40,9 @@ export default function Landing() {
         value="Focus the text input"
         onClick={handleClick}
       />
-      <LoginForm />
-      <SubmitButton onClick={() => handleSubmit()} />{<br></br>}
+      <LoginForm ref={textInput}/>
+      {/* <SubmitButton onClick={() => handleClick()} />{<br></br>} */}
+      <SubmitButton onClick={handleClick} />{<br></br>}
       <DialogBox />
       <Link to="/search">
         <Footer />

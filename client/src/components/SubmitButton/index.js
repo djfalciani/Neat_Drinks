@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function SubmitButton() {
+export default function SubmitButton(props) {
   const classes = useStyles();
 
   return (
