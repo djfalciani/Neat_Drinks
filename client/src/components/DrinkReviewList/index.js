@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-// import tileData from './tileData';
+import List from "@material-ui/core/List";
 import DrinkReviewCard from "../DrinkReviewCard";
 
 const useStyles = makeStyles(theme => ({
@@ -19,39 +17,33 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-export default function DrinkReviewList() {
+export default function DrinkReviewList(props) {
   const classes = useStyles();
+  const arr = props.reviews;
+  // console.log(arr);
+
+  var test = {
+    Rating: 100,
+    Review: "John Review - Manhattan",
+    createdAt: "2019-10-26T13:26:31.000Z",
+    updatedAt: "2019-10-26T13:26:31.000Z",
+    DrinkId: 2
+  };
 
   return (
-    <div className={classes.root}>
-      <GridList cellHeight={160} className={classes.gridList} cols={1}>
+    <List className={classes.root}>
+      {/* {console.log(props.drinksIveRated)} */}
 
-        {/* TODO This section needs to loop through whatever Array of drinks is sent to it and then output a list of Drink Cards */}
-        <GridListTile>
-          <DrinkReviewCard />
-        </GridListTile>
-        <GridListTile>
-          <DrinkReviewCard />
-        </GridListTile>
-        <GridListTile>
-          <DrinkReviewCard />
-        </GridListTile>
-        <GridListTile>
-          <DrinkReviewCard />
-        </GridListTile>
-        <GridListTile>
-          <DrinkReviewCard />
-        </GridListTile>
-        <GridListTile>
-          <DrinkReviewCard />
-        </GridListTile>
-        {/* {tileData.map(tile => (
-          <GridListTile key={tile.img} cols={tile.cols || 1}>
-            <img src={tile.img} alt={tile.title} />
-          </GridListTile>
-        ))} */}
-      </GridList>
-    </div>
+      {Object.keys(arr).map(function(key) {
+        return (
+          <DrinkReviewCard
+            id={arr[key].DrinkId}
+            review={arr[key].Review}
+            drinkRating={arr[key].Rating}
+            // drinkName={arr[key].dislpay_name}
+          />
+        );
+      })}
+    </List>
   );
 }

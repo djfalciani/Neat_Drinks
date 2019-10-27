@@ -2,8 +2,12 @@ const router = require("express").Router();
 const drinksController = require("../../controllers/drinksController");
 const usersController = require("../../controllers/usersController");
 
-// Matches with "/api/posts"
+// Matches with "/api/ingredients"
 router.route("/ingredients").get(drinksController.findAllIngredients);
+
+router.route("/drink/:id").get(drinksController.findOneDrink);
+router.route("/reviews/:id").get(drinksController.findDrinkReviews);
+
 // .post(drinksController.create);
 router.route("/user/:id").get(usersController.findOneUser);
 router.route("/userrated/:id").get(usersController.findUserRatedDrinks);

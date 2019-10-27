@@ -39,12 +39,14 @@ const useStyles = makeStyles(theme => ({
 
 export default function DrinkCard(props) {
   const classes = useStyles();
-  
 
   return (
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
-        <Avatar alt="" src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png" />
+        <Avatar
+          alt=""
+          src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
+        />
       </ListItemAvatar>
       <ListItemText
         primary={props.drinkName}

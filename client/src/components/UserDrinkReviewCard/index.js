@@ -5,9 +5,7 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
 import Avatar from "@material-ui/core/Avatar";
 import ListItem from "@material-ui/core/ListItem";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { getThemeProps } from "@material-ui/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,7 +40,10 @@ export default function UserDrinkReviewCard(props) {
   return (
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
-        <Avatar alt="" src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png" />
+        <Avatar
+          alt=""
+          src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
+        />
       </ListItemAvatar>
       <ListItemText
         primary={props.id}
