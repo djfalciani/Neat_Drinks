@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
-import DrinkCard from "../DrinkCard";
+import UserDrinkReviewCard from "../UserDrinkReviewCard";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,10 +13,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function DrinkCardList(props) {
+export default function UserReviewList(props) {
   const classes = useStyles();
-  // const arr = props;
-  console.log("HILO");
+  const arr = props.drinksIveRated;
+  // console.log("User REview List");
 
   // var Iratings = Object.keys(props.drinksIveRated).map(function(key) {
   //   console.log(arr[key]);
@@ -28,16 +28,15 @@ export default function DrinkCardList(props) {
     <List className={classes.root}>
       {/* {console.log(props.drinksIveRated)} */}
 
-      {/* {Object.keys(props.drinksIveRated).map(function(key) {
+      {Object.keys(props.drinksIveRated).map(function(key) {
         return (
-          <DrinkCard
+          <UserDrinkReviewCard
             id={arr[key].DrinkId}
             drinkReview={arr[key].Review}
             drinkRating={arr[key].Rating}
           />
         );
       })}
-      */}
     </List>
   );
 }

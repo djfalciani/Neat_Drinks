@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import { Button, Box, TextField } from "@material-ui/core/";
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,7 +8,6 @@ import NewDrinkButton from "../../components/NewDrinkButton";
 import Footer from "../../components/Footer";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-// import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import DrinkCardList from "../../components/DrinkCardList";
 // import DrinkCardList from "../../components/DrinkCardList";
@@ -21,9 +20,27 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function User() {
+export default function BarUser() {
   const classes = useStyles();
+  const [loggedUser, setLoggedUser] = useState({});
+  const [ratedDrinks, setRatedDrinks] = useState({});
 
+  useEffect(() => {
+    async function fetchData() {
+      // Get the user info
+      const loggedUser$ = await fetch("/api/user/3");
+      const fetchedUser = await loggedUser$.json();
+      // console.log(fetchedUser);
+
+      setLoggedUser(fetchedUser);
+
+      const ratedDrinks$ = await fetch("api/user/rated");
+      const fetchedDrinks = await ratedDrinks$.json();
+      // console.log(fetchedDrinks);
+      setRatedDrinks(fetchedDrinks);
+    }
+    fetchData();
+  }, []);
   return (
     <div>
       <LogoText />

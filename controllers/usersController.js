@@ -5,26 +5,25 @@ module.exports = {
   // GET route for getting a user
 
   findOneUser: function(req, res) {
+    // console.log(req.params.id);
     db.User.findOne({
       where: {
-        id: 2
-        // req.params.id
+        id: req.params.id
       }
     })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
-    console.log("Hello you are in the find one User call");
+    // console.log("Hello you are in the find one User call");
   },
 
   findUserRatedDrinks: function(req, res) {
     db.Drink_User_Rating.findAll({
       where: {
-        UserId: 2
-        // req.params.id
+        UserId: req.params.id
       }
     })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
-    console.log("Hello you are in the find one User call");
+    console.log("Hello you are in the find Rated Drinks by  User call");
   }
 };
