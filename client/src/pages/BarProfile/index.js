@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function BarUser() {
+export default function BarProfile() {
   const classes = useStyles();
   const [loggedUser, setLoggedUser] = useState({});
   const [barsMenu, setbarsMenu] = useState({});

@@ -37,28 +37,21 @@ export default function DrinkReview() {
       // ? Get the drinks reviews
       const reviews$ = await fetch(`api/reviews/${loadDrinkId}`);
       const fetchedReviews = await reviews$.json();
-      // console.log(fetchedReviews);
       SetDrinkReviews(fetchedReviews);
 
       // ? Get the Drink Maker
       const maker$ = await fetch(`api/user/${userSearch}`);
       const fetchedMaker = await maker$.json();
-      // console.log(fetchedMaker);
       setdrinkMaker(fetchedMaker);
 
       // ? Make Drink Average
-      // const drinkScores = [];
       var drinkScoreTotal = 0;
       for (var i = 0; i < fetchedReviews.length; i++) {
-        // console.log();
         drinkScoreTotal += fetchedReviews[i].Rating;
-        // drinkScores.push(fetchedReviews[i].Rating);
       }
       var drinkAvg = drinkScoreTotal / fetchedReviews.length;
-      // console.log(drinkAvg);
 
       SetDrinkAverage({ ...drinkAverage, avg: drinkAvg });
-      // console.log(drinkAverage);
     }
     fetchData();
   }, []);
@@ -68,6 +61,7 @@ export default function DrinkReview() {
       <LogoText />
 
       <Paper className={classes.root}>
+        
         <Typography variant="h5" component="h1" color="error">
           {drink.dislpay_name}
         </Typography>

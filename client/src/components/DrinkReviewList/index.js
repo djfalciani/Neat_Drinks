@@ -22,13 +22,7 @@ export default function DrinkReviewList(props) {
   const arr = props.reviews;
   // console.log(arr);
 
-  var test = {
-    Rating: 100,
-    Review: "John Review - Manhattan",
-    createdAt: "2019-10-26T13:26:31.000Z",
-    updatedAt: "2019-10-26T13:26:31.000Z",
-    DrinkId: 2
-  };
+ 
 
   return (
     <List className={classes.root}>

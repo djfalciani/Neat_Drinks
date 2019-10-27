@@ -39,10 +39,7 @@ export default function DrinkReviewCard(props) {
   return (
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
-        <Avatar
-          alt=""
-          src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
-        />
+        <Avatar src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png" />
       </ListItemAvatar>
       <ListItemText
         primary="User X need join table"
@@ -54,7 +51,7 @@ export default function DrinkReviewCard(props) {
               className={classes.inline}
               color="textSecondary"
             >
-             {props.review}
+              {props.review}
             </Typography>
           </React.Fragment>
         }
