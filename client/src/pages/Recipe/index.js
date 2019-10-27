@@ -23,12 +23,12 @@ export default function Recipe() {
       <Logo />
       <RecipeForm />{<br></br>}{<br></br>}
       <Divider />
-      <Paper className={classes.root}>
+      {/* <Paper className={classes.root}>
         <Typography variant="h7" component="h3">
           <em>Recipe detail</em>
         </Typography>
         <RecipeFormDetail />
-      </Paper>
+      </Paper> */}
         <Footer />
     </div>
   );

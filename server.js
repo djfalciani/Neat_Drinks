@@ -18,8 +18,9 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get('*', function (req, res) {
+  const index = path.join(__dirname, 'build', 'index.html');
+  res.sendFile(index);
 });
 
 const syncOptions = { force: false };

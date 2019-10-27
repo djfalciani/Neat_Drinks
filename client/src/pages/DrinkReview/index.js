@@ -23,7 +23,7 @@ export default function DrinkReview() {
   const [drinkMaker, setdrinkMaker] = useState({});
   const [DrinkReviews, SetDrinkReviews] = useState({});
   const [drinkAverage, SetDrinkAverage] = useState({ avg: 0 });
-
+  
   useEffect(() => {
     async function fetchData() {
       // ? Get the user info
@@ -61,7 +61,6 @@ export default function DrinkReview() {
       <LogoText />
 
       <Paper className={classes.root}>
-        
         <Typography variant="h5" component="h1" color="error">
           {drink.dislpay_name}
         </Typography>
@@ -72,15 +71,13 @@ export default function DrinkReview() {
       <Paper className={classes.root}>
         Cocktail Average
         <Typography align="right" variant="h2" component="h2" color="secondary">
-          {/* 89.fake */}
           {drinkAverage.avg}
-          {/* {console.log(drinkAverage)} */}
         </Typography>
       </Paper>
-      {/* <Paper className={classes.root}>
-        Your Rating
+      <Paper className={classes.root}>
+        Your Review
         <RatingSlider />
-      </Paper> */}
+      </Paper>
 
       {/* {console.log(typeof DrinkReviews)} */}
 

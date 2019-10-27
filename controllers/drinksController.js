@@ -27,5 +27,15 @@ module.exports = {
     })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
+  },
+  createRecipe: function(req, res) {
+    console.log(req.body);
+    db.Drink.create({
+      UserId: req.body.UserId,
+      dislpay_name: req.body.dislpay_name,
+      instruction: req.body.instruction
+    }).then(function(dbRecipie) {
+      res.json(dbRecipie);
+    });
   }
 };
