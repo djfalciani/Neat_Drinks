@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import { Button, Box, TextField } from "@material-ui/core/";
 import { makeStyles } from "@material-ui/core/styles";
 
 import LogoText from "../../components/LogoText";
@@ -20,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function BarUser() {
+export default function BarProfile() {
   const classes = useStyles();
   const [loggedUser, setLoggedUser] = useState({});
   const [barsMenu, setbarsMenu] = useState({});
@@ -67,7 +66,7 @@ export default function BarUser() {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <DrinkCardList barMenu={barsMenu}/>
+            <DrinkCardList barMenu={barsMenu} />
           </Grid>
           <NewDrinkButton />
         </Grid>
@@ -75,9 +74,7 @@ export default function BarUser() {
 
       <Paper className={classes.root}>{/* <DrinkCardList /> */}</Paper>
 
-      <Link to="/search">
-        <Footer />
-      </Link>
+      <Footer />
     </div>
   );
 }

@@ -29,9 +29,7 @@ export default function Recipe() {
         </Typography>
         <RecipeFormDetail />
       </Paper>
-      <Link to="/search">
         <Footer />
-      </Link>
     </div>
   );
 }

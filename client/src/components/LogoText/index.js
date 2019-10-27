@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -11,7 +13,7 @@ const useStyles = makeStyles({
   },
   card: {
     backgroundColor: "inherit",
-    boxShadow: "none",
+    boxShadow: "none"
   }
 });
 
@@ -19,20 +21,20 @@ export default function Logo() {
   const classes = useStyles();
 
   const handleClick = () => {
-    alert("You clicked the birb.");
+    // alert("You clicked the birb.");
   };
 
   return (
-    <div>
-        <Card className={classes.card}>
-          <CardMedia
-            onClick={handleClick}
-            component="img"
-            className={classes.media}
-            image="/images/neat-Logo-Text.png"
-            title="neat"
-          />
-        </Card>
-    </div>
+    <Link to="/">
+      <Card className={classes.card}>
+        <CardMedia
+          onClick={handleClick}
+          component="img"
+          className={classes.media}
+          image="/images/neat-Logo-Text.png"
+          title="neat"
+        />
+      </Card>
+    </Link>
   );
 }
