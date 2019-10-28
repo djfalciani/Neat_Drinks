@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
 
-import RatingSlider from "../../components/RatingSlider";
+import ReviewForm from "../../components/ReviewForm";
 import DrinkReviewList from "../../components/DrinkReviewList";
 
 import Paper from "@material-ui/core/Paper";
@@ -14,7 +14,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
-    margin: 3
+    margin: 6
   }
 }));
 export default function DrinkReview() {
@@ -82,8 +82,7 @@ export default function DrinkReview() {
         </Typography>
       </Paper>
       <Paper className={classes.root}>
-        Your Review
-        <RatingSlider />
+        <ReviewForm />
       </Paper>
       <Paper className={classes.root}>
         Cocktail Average
