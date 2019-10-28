@@ -6,17 +6,11 @@ import { width } from "@material-ui/system";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(2),
-    width: "50%",
-    
     margin: theme.spacing(1),
-    // alignContent: "center",
-    // alignSelf: "center"
-  },div:{
-    margin: "auto",
-    width: "100%"
+    width: "97%"
   },
-  button: {
-    // width: "100%"
+  div:{
+    margin: "auto",
   },
   input: {
     display: "none"

@@ -36,7 +36,6 @@ export default function RecipeForm() {
 
   const handleFormSubmit = async function(e) {
     e.preventDefault();
-    console.log("buttone pressed");
     console.log(drinkName.drinkName);
     const theName = drinkName.drinkName;
     const recipe = {
@@ -52,7 +51,9 @@ export default function RecipeForm() {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    });
+    }).then(
+      alert("drink recipe saved!")
+    );
   };
 
   useEffect(() => {}, []);
