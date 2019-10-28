@@ -1,4 +1,6 @@
   import React from "react";
+  import { Link } from "react-router-dom";
+
   import { makeStyles } from "@material-ui/core/styles";
   import Card from "@material-ui/core/Card";
   import CardMedia from "@material-ui/core/CardMedia";
@@ -18,11 +20,11 @@
     const classes = useStyles();
 
     const handleClick = () => {
-      alert("You clicked the birb.");
+      // alert("You clicked the birb.");
     };
 
     return (
-      <div>
+      <Link to="/">
         <Card className={classes.card}>
           <CardMedia
             onClick={handleClick}
@@ -32,6 +34,6 @@
             title="neat"
           />
         </Card>
-      </div>
+      </Link>
     );
   }

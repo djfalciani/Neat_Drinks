@@ -2,83 +2,100 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-// import axios from "axios"
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
-  },
-  dense: {
-    marginTop: theme.spacing(2)
-  },
-  menu: {
-    width: 200
+  root: {
+    padding: theme.spacing(3, 2),
+    margin: 3
   }
 }));
 
 export default function RecipeForm() {
   const classes = useStyles();
-  const [drinkName, setDrinkName] = useState({});
-  const [drinkInstructions, setDrinkInstructions] = useState({});
+  const [drinkName, setDrinkName] = useState({ drinkName: "Enter Name Here" });
+  const [drinkInstructions, setDrinkInstructions] = useState({
+    drinkInstructions: "enter description"
+  });
 
-  // const handleChange = name => event => {
-  //   setValues({ ...values, [name]: event.target.value });
-
-  const handleFormSubmit = event => {
-    event.preventDefault();
-    // console.log(event.target.drinkName);
-    const thisVariable = { drinkName };
-    setDrinkName(drinkName)
-    alert(thisVariable);
-    // const newRecipe = {
-    //    name:
-    //    description:
-    // }
-
-    // axios.post("/api/drink", newRecipe)
-    // .then()
+  const handleNameChange = event => {
+    console.log(event.target.value);
+    const {value } = event.target;
+    setDrinkName({
+      ...drinkName,
+      drinkName: value
+    });
+  };
+  const handleDescriptionChange = event => {
+    console.log(event.target.value);
+    const { value } = event.target;
+    setDrinkInstructions({
+      ...drinkInstructions,
+      drinkInstructions: value
+    });
   };
 
+  const handleFormSubmit = async function(e) {
+    e.preventDefault();
+    console.log(drinkName.drinkName);
+    const theName = drinkName.drinkName;
+    const recipe = {
+      UserId: 3,
+      dislpay_name: theName,
+      instruction: drinkInstructions.drinkInstructions
+    };
+
+    const response = await fetch("api/createdrink", {
+      method: "POST",
+      body: JSON.stringify(recipe),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    }).then(
+      alert("drink recipe saved!")
+    );
+  };
+
+  useEffect(() => {}, []);
+
   return (
-    <form className={classes.container} noValidate autoComplete="on">
+    <form className="commentForm" onSubmit={handleFormSubmit}>
       <TextField
         required
-        value={drinkName}
-        onChange={e => setDrinkName(e.target.value)}
+        name="drinkName"
+        value={drinkName.drinkName}
+        onChange={handleNameChange}
         id="drink-name"
         label="Drink Name"
         className={classes.textField}
         margin="normal"
         fullWidth
         variant="filled"
-        name="drinkName"
       />
+
       <TextField
         id="drink-description"
         label="Drink Description"
+        name="drinkDescription"
+        onChange={handleDescriptionChange}
         className={classes.textField}
         margin="normal"
         variant="outlined"
         multiline
         fullWidth
         rows="4"
-        // helperText="Place your Drink Recipe here"
+        helperText="Place your Drink Recipe here"
       />
+
       <Button
-        onClick={handleFormSubmit}
-        name="drink-recipe-button"
-        variant="contained"
-        fullWidth
-        color="primary"
-        type="submit"
         className={classes.button}
+        fullWidth
+        type="submit"
+        value="Create"
+        color="primary"
+        // onClick={handleFormSubmit}
       >
-        Submit
+        Create
       </Button>
     </form>
   );

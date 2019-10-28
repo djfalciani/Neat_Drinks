@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import Card from "@material-ui/core/Card";
@@ -22,17 +24,18 @@ export default function Footer() {
 
   return (
     <div>
-      <BottomNavigation className={classes.root}>
-        <Card className={classes.card}>
-          <CardMedia
-            component="img"
-            className={classes.media}
-            image="/images/neat-Logo-bird.png"
-            title="neat"
-          >
-          </CardMedia>
-        </Card>
-      </BottomNavigation>
+      <Link to="/search">
+        <BottomNavigation className={classes.root}>
+          <Card className={classes.card}>
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image="/images/neat-Logo-bird.png"
+              title="neat"
+            ></CardMedia>
+          </Card>
+        </BottomNavigation>
+      </Link>
     </div>
   );
 }

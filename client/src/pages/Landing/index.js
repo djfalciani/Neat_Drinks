@@ -82,9 +82,7 @@ export default function Landing() {
       {/* <SubmitButton onClick={() => handleClick()} />{<br></br>} */}
       <SubmitButton onClick={handleClick} />{<br></br>}
       <DialogBox />
-      <Link to="/search">
         <Footer />
-      </Link>
     </div>
   );
 }

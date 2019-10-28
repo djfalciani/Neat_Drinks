@@ -1,41 +1,39 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
-import DrinkReviewCard from "../DrinkReviewCard";
+import UserDrinkReviewCard from "../UserDrinkReviewCard";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
+    width: "100%",
     backgroundColor: theme.palette.background.paper
   },
-  gridList: {
-    width: 500,
-    height: 450
+  inline: {
+    display: "inline"
   }
 }));
 
-export default function DrinkReviewList(props) {
+export default function UserReviewList(props) {
   const classes = useStyles();
-  const arr = props.reviews;
-  // console.log(arr);
+  const arr = props.drinksIveRated;
+  // console.log("User REview List");
 
- 
+  // var Iratings = Object.keys(props.drinksIveRated).map(function(key) {
+  //   console.log(arr[key]);
+  // });
+
+  // console.log(typeof Iratings);
 
   return (
     <List className={classes.root}>
       {/* {console.log(props.drinksIveRated)} */}
 
-      {Object.keys(arr).map(function(key) {
+      {Object.keys(props.drinksIveRated).map(function(key) {
         return (
-          <DrinkReviewCard
+          <UserDrinkReviewCard
             id={arr[key].DrinkId}
-            review={arr[key].Review}
-            username={arr[key].User_Name}
+            drinkReview={arr[key].Review}
             drinkRating={arr[key].Rating}
-            // drinkName={arr[key].dislpay_name}
           />
         );
       })}

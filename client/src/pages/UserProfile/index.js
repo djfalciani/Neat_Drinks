@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
-import DrinkCardList from "../../components/DrinkCardList";
+import UserReviewList from "../../components/UserReviewList";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -23,13 +23,14 @@ function User() {
   useEffect(() => {
     async function fetchData() {
       // Get the user info
-      const loggedUser$ = await fetch("/api/user");
+      const loadingUser = 2;
+      const loggedUser$ = await fetch(`/api/user/${loadingUser}`);
       const fetchedUser = await loggedUser$.json();
       // console.log(fetchedUser);
 
       setLoggedUser(fetchedUser);
 
-      const ratedDrinks$ = await fetch("api/user/rated");
+      const ratedDrinks$ = await fetch(`api/userrated/${loadingUser}`);
       const fetchedDrinks = await ratedDrinks$.json();
       // console.log(fetchedDrinks);
       setRatedDrinks(fetchedDrinks);
@@ -51,8 +52,7 @@ function User() {
       </Paper>
       <Paper className={classes.root}>Your rated Drinks are below</Paper>
       <Paper className={classes.root}>
-        <DrinkCardList 
-        drinksIveRated = {ratedDrinks}/>
+        <UserReviewList drinksIveRated={ratedDrinks} />
       </Paper>
       <Footer />
     </div>

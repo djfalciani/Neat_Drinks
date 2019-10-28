@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
-import { emphasize, makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import NoSsr from "@material-ui/core/NoSsr";
 import TextField from "@material-ui/core/TextField";
@@ -26,8 +26,6 @@ const useStyles = makeStyles(theme => ({
     color: "primary",
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2)
-
-    
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -129,7 +127,7 @@ Control.propTypes = {
 function Option(props) {
   return (
     <MenuItem
-    margin="normal"
+      margin="normal"
       ref={props.innerRef}
       selected={props.isFocused}
       component="div"
@@ -299,7 +297,7 @@ export default function IntegrationReactSelect() {
     <div className={classes.root}>
       <NoSsr>
         <Select
-        margin="normal"
+          margin="normal"
           classes={classes}
           styles={selectStyles}
           inputId="react-select-single"
