@@ -36,6 +36,7 @@ export default function RecipeForm() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     name: "Cat in the Hat",
+    searchName: "",
     age: "",
     multiline: "Controlled",
     currency: "EUR"
@@ -53,12 +54,17 @@ export default function RecipeForm() {
           <TextField
             required
             id="filled-required"
-            label="SearchTerm"
+            label="Search Term"
             defaultValue="search by drink name"
             className={classes.textField}
             margin="normal"
             fullWidth
             variant="filled"
+            // DJF - Controlled component...
+            placeholder="Search Drinks"
+            // value={values.name}
+            value={values.searchName}
+            onChange={handleChange('searchName')}
           />
           <SearchField />
           <Divider />
