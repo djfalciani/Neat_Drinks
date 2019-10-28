@@ -3,13 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles(theme => ({
-  
   container: {
     display: "flex",
-    flexWrap: "wrap",
+    flexWrap: "wrap"
   },
   textField: {
-
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1)
   },
@@ -17,11 +15,12 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2)
   },
   menu: {
-    width: 200
-  }, notchedOutline: {
-    borderWidth: '1px',
-    borderColor: 'green !important'
+    // width: "200"
   },
+  notchedOutline: {
+    borderWidth: "1px",
+    borderColor: "green !important"
+  }
 }));
 
 export default function LoginForm() {

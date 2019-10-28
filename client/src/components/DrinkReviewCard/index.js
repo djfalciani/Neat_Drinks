@@ -9,7 +9,11 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    width: "100%",
+    backgroundColor: theme.palette.background.paper
+  },
+  inline: {
+    display: "inline"
   },
   paper: {
     padding: theme.spacing(4),
@@ -42,7 +46,7 @@ export default function DrinkReviewCard(props) {
         <Avatar src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png" />
       </ListItemAvatar>
       <ListItemText
-        primary="User X need join table"
+        primary={props.username}
         secondary={
           <React.Fragment>
             <Typography
