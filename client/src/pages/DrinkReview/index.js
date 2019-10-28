@@ -44,7 +44,7 @@ export default function DrinkReview() {
       // Get Drinks Reviews v2 - returns back all drink_User_Rating data + User_Name & Drink_Name
       const reviews2$ = await fetch(`api/reviews2/${loadDrinkId}`);
       const fetchedReviews2 = await reviews2$.json();
-      // console.log(fetchedReviews2);
+      console.log(fetchedReviews2);
       SetDrinkReviews2(fetchedReviews2);
 
       // ? Get the Drink Maker
@@ -77,20 +77,25 @@ export default function DrinkReview() {
         </Typography>
       </Paper>
       <Paper className={classes.root}>
-        Cocktail Average
-        <Typography align="right" variant="h2" component="h2" color="secondary">
-          {drinkAverage.avg}
+      <Typography align="right" variant="h7" component="h7" color="error">
+          {drink.instruction}
         </Typography>
       </Paper>
       <Paper className={classes.root}>
         Your Review
         <RatingSlider />
       </Paper>
+      <Paper className={classes.root}>
+        Cocktail Average
+        <Typography align="right" variant="h2" component="h2" color="secondary">
+          {drinkAverage.avg}
+        </Typography>
+      </Paper>
 
       {/* {console.log(typeof DrinkReviews)} */}
 
       <Paper className={classes.root}>
-        <DrinkReviewList reviews={DrinkReviews} />
+        <DrinkReviewList reviews={DrinkReviews2} />
       </Paper>
       <Link to="/search">
         <Footer />
