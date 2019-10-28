@@ -21,7 +21,13 @@ const useStyles = makeStyles(theme => ({
 export default function DialogBox() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-
+  
+  // Create State Hooks for data we will need when creating a new user...
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [userName, setUserName] = useState();
+  const [userType, setUserType] = useState();
+  
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -30,9 +36,27 @@ export default function DialogBox() {
     setOpen(false);
   };
 
+  // const handleNameChange = event => {
+  //   console.log(event.target.value);
+  //   const {value } = event.target;
+  //   setDrinkName({
+  //     ...drinkName,
+  //     drinkName: value
+  //   });
+  // };
+
   const handleSubmit = () => {
     //logic to add info to the database
+    alert(`Test`);
+    console.log("Test");
     setOpen(false);
+  };
+  
+  const handleSubmitTest = () => {
+    //logic to add info to the database
+    alert(`Test`);
+    console.log("Test");
+    // setOpen(false);
   };
 
   return (
@@ -59,6 +83,12 @@ export default function DialogBox() {
             label="email address"
             type="email"
             fullWidth
+            // Option #1
+            // value={drinkName.drinkName}
+            // onChange={handleNameChange}
+            // Option #2
+            // name="username"
+            onChange={e => setEmail(e.target.value)}
           />
           <TextField
             className={classes.content}
