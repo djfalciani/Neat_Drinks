@@ -36,7 +36,6 @@ export default function RecipeForm() {
 
   const handleFormSubmit = async function(e) {
     e.preventDefault();
-    console.log(drinkName.drinkName);
     const theName = drinkName.drinkName;
     const recipe = {
       UserId: 3,

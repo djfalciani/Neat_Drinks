@@ -29,13 +29,23 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createRecipe: function(req, res) {
-    console.log(req.body);
     db.Drink.create({
       UserId: req.body.UserId,
       dislpay_name: req.body.dislpay_name,
       instruction: req.body.instruction
     }).then(function(dbRecipie) {
       res.json(dbRecipie);
+    });
+  },
+  createReview: function(req, res) {
+    console.log(req.body);
+    db.Drink_User_Rating.create({
+      Rating: req.body.Rating,
+      Review: req.body.Review,
+      DrinkId: req.body.DrinkId,
+      UserId: req.body.UserId
+    }).then(function(dbReview) {
+      res.json(dbReview);
     });
   },
   findDrinkReviews2: function(req, res) {

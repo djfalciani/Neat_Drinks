@@ -8,6 +8,8 @@ router.route("/ingredients").get(drinksController.findAllIngredients);
 router.route("/drink/:id").get(drinksController.findOneDrink);
 
 router.route("/createdrink").post(drinksController.createRecipe);
+router.route("/createreview").post(drinksController.createReview);
+
 router.route("/reviews/:id").get(drinksController.findDrinkReviews);
 router.route("/reviews2/:id").get(drinksController.findDrinkReviews2);
 
