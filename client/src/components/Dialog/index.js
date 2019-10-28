@@ -21,12 +21,17 @@ const useStyles = makeStyles(theme => ({
 export default function DialogBox() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  
-  // Create State Hooks for data we will need when creating a new user...
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [userName, setUserName] = useState();
-  const [userType, setUserType] = useState();
+  // DJF - Controlled components
+  const [values, setValues] = React.useState({
+    email: "",
+    password: "",
+    userName: "",
+    userType: ""
+  });
+
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -36,27 +41,19 @@ export default function DialogBox() {
     setOpen(false);
   };
 
-  // const handleNameChange = event => {
-  //   console.log(event.target.value);
-  //   const {value } = event.target;
-  //   setDrinkName({
-  //     ...drinkName,
-  //     drinkName: value
-  //   });
-  // };
-
   const handleSubmit = () => {
     //logic to add info to the database
-    alert(`Test`);
-    console.log("Test");
+    const newUserData = {
+      email: values.email,
+      password: values.password,
+      display_name: values.userName
+    };
+
+    // alert(`Signup for new User: Email: ${values.email} Password: ${values.password} Username: ${values.userName}`);
+    // console.log(`Signup for new User: Email: ${values.email} Password: ${values.password} Username: ${values.userName}`);
+    console.log(newUserData);
+    
     setOpen(false);
-  };
-  
-  const handleSubmitTest = () => {
-    //logic to add info to the database
-    alert(`Test`);
-    console.log("Test");
-    // setOpen(false);
   };
 
   return (
@@ -83,12 +80,8 @@ export default function DialogBox() {
             label="email address"
             type="email"
             fullWidth
-            // Option #1
-            // value={drinkName.drinkName}
-            // onChange={handleNameChange}
-            // Option #2
-            // name="username"
-            onChange={e => setEmail(e.target.value)}
+            value={values.email}
+            onChange={handleChange('email')}
           />
           <TextField
             className={classes.content}
@@ -97,6 +90,8 @@ export default function DialogBox() {
             label="password"
             type="password"
             fullWidth
+            value={values.password}
+            onChange={handleChange('password')}
           />
         
           what would you like your user name to be?
@@ -107,6 +102,8 @@ export default function DialogBox() {
             type="username"
             variant="outlined"
             fullWidth
+            value={values.userName}
+            onChange={handleChange('userName')}
           />
           <DialogContentText>business or personal?</DialogContentText>
           <Checkbox />
