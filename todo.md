@@ -8,10 +8,7 @@
 
 - **Connect Submit in modal so it creates account**
 - **Connect Submit so it logs User In**
-  -change "Submit" to Create in Modal
-- Change Title to Create Account
 - Move Password to just below email address
-- Change username to Name, or Displau
 - Seperate Display name field slighty from other 2 entries, maybe like s differnt type of input field. or differnt color just to renforce that one logins with thier email/pw
 
 # Search
@@ -21,11 +18,7 @@
 - **Feed & Format Results with link to a particular Drink's Page**
 - **loose search by spirit for now**
 
-# Recipe
-
-- **Hide Recipe Detail Section**
-- **Hook Up to database and create Records**
-- **Change "Submit" to create**
+# Recipe is adding recipes!
 
 # User Profile
 
@@ -42,7 +35,6 @@
 really should have called this drink profile!
 
 - **Allow user to enter in thier review of the drink**
-- **Display Drink instructions with Name and creator**
 
 # Overall
 

@@ -12,14 +12,14 @@ const useStyles = makeStyles(theme => ({
 
 export default function RecipeForm() {
   const classes = useStyles();
-  const [drinkName, setDrinkName] = useState({ drinkName: "Enter Name Here" });
+  const [drinkName, setDrinkName] = useState({ drinkName: "" });
   const [drinkInstructions, setDrinkInstructions] = useState({
     drinkInstructions: "enter description"
   });
 
   const handleNameChange = event => {
     console.log(event.target.value);
-    const {value } = event.target;
+    const { value } = event.target;
     setDrinkName({
       ...drinkName,
       drinkName: value
@@ -44,7 +44,7 @@ export default function RecipeForm() {
       dislpay_name: theName,
       instruction: drinkInstructions.drinkInstructions
     };
-
+    // eslint-disable-next-line
     const response = await fetch("api/createdrink", {
       method: "POST",
       body: JSON.stringify(recipe),
@@ -83,12 +83,13 @@ export default function RecipeForm() {
         multiline
         fullWidth
         rows="4"
-        helperText="Place your Drink Recipe here"
+        // helperText="Place your Drink Recipe here"
       />
 
       <Button
         className={classes.button}
         fullWidth
+        variant="outlined"
         type="submit"
         value="Create"
         color="primary"
