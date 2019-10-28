@@ -5,17 +5,11 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(2),
-    width: "100%",
-    
     margin: theme.spacing(1),
-    // alignContent: "center",
-    // alignSelf: "center"
-  },div:{
-    margin: "auto",
-    width: "100%"
+    width: "97%"
   },
-  button: {
-    // width: "100%"
+  div:{
+    margin: "auto",
   },
   input: {
     display: "inline"
