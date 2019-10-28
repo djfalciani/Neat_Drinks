@@ -9,6 +9,7 @@ router.route("/drink/:id").get(drinksController.findOneDrink);
 
 router.route("/createdrink").post(drinksController.createRecipe);
 router.route("/reviews/:id").get(drinksController.findDrinkReviews);
+router.route("/reviews2/:id").get(drinksController.findDrinkReviews2);
 
 // .post(drinksController.create);
 router.route("/user/:id").get(usersController.findOneUser);
