@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2)
   },
   content: {
-    marginBottom: 2
+    marginBottom: 50
   }
 }));
 
@@ -53,6 +53,7 @@ export default function DialogBox() {
         <DialogTitle id="form-dialog-title">Create Account</DialogTitle>
         <DialogContent>
           <TextField
+            required
             autoFocus
             margin="normal"
             id="name"
@@ -61,22 +62,24 @@ export default function DialogBox() {
             fullWidth
           />
           <TextField
+            required
             className={classes.content}
             margin="normal"
             id="password"
             label="password"
             type="password"
+            autoComplete="current-password"
             fullWidth
           />
-        
-          what would you like your user name to be?
           <TextField
+            className={classes.content}
             margin="wide"
             id="displayname"
-            label="username"
+            label="public or display name"
             type="username"
-            variant="outlined"
             fullWidth
+            helperText="this is the name people will use to search for you"
+
           />
           <DialogContentText>business or personal?</DialogContentText>
           <Checkbox />
