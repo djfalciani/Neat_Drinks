@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
-
 import RatingSlider from "../../components/RatingSlider";
 import DrinkReviewList from "../../components/DrinkReviewList";
-
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
@@ -17,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     margin: 3
   }
 }));
+
 export default function DrinkReview() {
   const classes = useStyles();
   const [drink, setDrink] = useState({});
@@ -67,7 +65,7 @@ export default function DrinkReview() {
   return (
     <div>
       <LogoText />
-
+      
       <Paper className={classes.root}>
         <Typography variant="h5" component="h1" color="error">
           {drink.dislpay_name}

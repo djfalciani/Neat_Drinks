@@ -20,7 +20,6 @@ export default function DrinkCardList(props) {
 
   return (
     <List className={classes.root}>
-      {/* {console.log(props.drinksIveRated)} */}
 
       {Object.keys(props.barMenu).map(function(key) {
         return (
