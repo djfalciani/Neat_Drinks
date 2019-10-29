@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../../components/Logo";
 import RecipeForm from "../../components/RecipeForm";
-import RecipeFormDetail from "../../components/RecipeFormDetail";
+// import RecipeFormDetail from "../../components/RecipeFormDetail";
 import Footer from "../../components/Footer";
-import Paper from "@material-ui/core/Paper";
+// import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Recipe() {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <div>
       <Logo />

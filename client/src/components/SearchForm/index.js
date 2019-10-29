@@ -7,9 +7,8 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-
 import SearchField from "../SearchField";
-import DrinkCardList from "../DrinkCardList";
+// import DrinkCardList from "../DrinkCardList";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,9 +40,9 @@ export default function RecipeForm() {
     currency: "EUR"
   });
 
-  const handleChange = name => event => {
-    setValues({ ...values, [name]: event.target.value });
-  };
+  // const handleChange = name => event => {
+  //   setValues({ ...values, [name]: event.target.value });
+  // };
 
   return (
     <Paper>
