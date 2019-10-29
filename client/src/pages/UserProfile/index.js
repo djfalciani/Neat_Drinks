@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
 import UserReviewList from "../../components/UserReviewList";
-
 import { makeStyles } from "@material-ui/core/styles";
-
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
@@ -40,7 +38,6 @@ function User() {
 
   return (
     <div>
-      {/* {console.log("hi")} */}
       <LogoText />
       <Paper className={classes.root}>
         <Typography variant="h5" component="h1" color="primary">

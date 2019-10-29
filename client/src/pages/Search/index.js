@@ -9,7 +9,6 @@ export default function Landing() {
     <div>
         <LogoText />
         <SearchForm />
-      
         <Footer />
     </div>
   );
