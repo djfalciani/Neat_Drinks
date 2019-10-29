@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const handleClick = () => {};
 export default function DrinkCard(props) {
   const classes = useStyles();
 
@@ -43,6 +44,8 @@ export default function DrinkCard(props) {
         <Avatar
           alt=""
           src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
+          data-id={props.id}
+          link="`./drinkreview/${props.id}`"
         />
       </ListItemAvatar>
       <ListItemText

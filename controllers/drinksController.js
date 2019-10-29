@@ -1,5 +1,9 @@
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 // Requiring our models
 var db = require("../models");
+
 
 module.exports = {
   // GET route for getting all Ingredients
@@ -29,13 +33,23 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createRecipe: function(req, res) {
-    console.log(req.body);
     db.Drink.create({
       UserId: req.body.UserId,
       dislpay_name: req.body.dislpay_name,
       instruction: req.body.instruction
     }).then(function(dbRecipie) {
       res.json(dbRecipie);
+    });
+  },
+  createReview: function(req, res) {
+    console.log(req.body);
+    db.Drink_User_Rating.create({
+      Rating: req.body.Rating,
+      Review: req.body.Review,
+      DrinkId: req.body.DrinkId,
+      UserId: req.body.UserId
+    }).then(function(dbReview) {
+      res.json(dbReview);
     });
   },
   findDrinkReviews2: function(req, res) {
@@ -49,5 +63,17 @@ module.exports = {
 
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
+  },
+  searchDrinks: function(req, res) {
+    console.log(req.params.q);
+    query = "%" + req.params.q + "%";
+    db.Drink.findAll({
+      where: {
+        dislpay_name: { [Op.like]: query }
+      }
+    })
+      .then(dbDrink => res.json(dbDrink))
+      .catch(err => res.status(422).json(err));
+    console.log("you made it to the search section");
   }
 };

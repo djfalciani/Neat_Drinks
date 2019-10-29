@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
   },
   input: {
-    display: "none"
+    display: "inline"
   }
 }));
 
@@ -24,7 +24,7 @@ export default function SubmitButton() {
       <Button
         className={classes.root}
         variant="contained"
-        fullWidth
+        // fullWidth
         color="primary"
       >
         Login
