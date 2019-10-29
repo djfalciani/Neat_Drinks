@@ -5,11 +5,8 @@ import UserDrinkReviewCard from "../UserDrinkReviewCard";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%",
-    backgroundColor: theme.palette.background.paper
-  },
-  inline: {
-    display: "inline"
+    padding: theme.spacing(3, 2),
+    margin: 3
   }
 }));
 

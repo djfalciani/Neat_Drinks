@@ -1,5 +1,9 @@
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 // Requiring our models
 var db = require("../models");
+
 
 module.exports = {
   // GET route for getting all Ingredients
@@ -59,5 +63,17 @@ module.exports = {
 
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
+  },
+  searchDrinks: function(req, res) {
+    console.log(req.params.q);
+    query = "%" + req.params.q + "%";
+    db.Drink.findAll({
+      where: {
+        dislpay_name: { [Op.like]: query }
+      }
+    })
+      .then(dbDrink => res.json(dbDrink))
+      .catch(err => res.status(422).json(err));
+    console.log("you made it to the search section");
   }
 };

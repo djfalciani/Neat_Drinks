@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Link } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
@@ -9,31 +9,8 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%",
-    backgroundColor: theme.palette.background.paper
-  },
-  inline: {
-    display: "inline"
-  },
-  paper: {
-    padding: theme.spacing(4),
-    margin: "auto",
-    marginTop: 1,
-    maxWidth: 500
-  },
-  box: {
-    border: 1,
-    borderColor: "primary.main"
-  },
-  image: {
-    width: 72,
-    height: 72
-  },
-  img: {
-    margin: "auto",
-    display: "block",
-    maxWidth: "100%",
-    background: "orange"
+    padding: theme.spacing(3, 2),
+    margin: 3
   }
 }));
 
@@ -45,6 +22,7 @@ export default function DrinkReviewCard(props) {
       <ListItemAvatar>
         <Avatar src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png" />
       </ListItemAvatar>
+
       <ListItemText
         primary={props.username}
         secondary={
@@ -60,6 +38,7 @@ export default function DrinkReviewCard(props) {
           </React.Fragment>
         }
       />
+
       <ListItemAvatar>{props.drinkRating}</ListItemAvatar>
     </ListItem>
   );

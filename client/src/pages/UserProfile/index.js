@@ -23,7 +23,7 @@ function User() {
   useEffect(() => {
     async function fetchData() {
       // Get the user info
-      const loadingUser = 2;
+      const loadingUser = 1;
       const loggedUser$ = await fetch(`/api/user/${loadingUser}`);
       const fetchedUser = await loggedUser$.json();
       // console.log(fetchedUser);

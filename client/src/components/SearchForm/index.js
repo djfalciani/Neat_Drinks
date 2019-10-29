@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-// import FormGroup from "@material-ui/core/FormGroup";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Switch from "@material-ui/core/Switch";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
 import SearchField from "../SearchField";
-import DrinkCardList from "../DrinkCardList";
+import searchResultList from "../searchResultList";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,33 +31,73 @@ const useStyles = makeStyles(theme => ({
 
 export default function RecipeForm() {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    name: "Cat in the Hat",
-    age: "",
-    multiline: "Controlled",
-    currency: "EUR"
-  });
+  const [searchTerm, setSearchTerm] = useState({ searchTerm: "" });
+  const [searchResult, setSearchResults] = useState({});
 
-  const handleChange = name => event => {
-    setValues({ ...values, [name]: event.target.value });
+  const handleChange = event => {
+    const { value } = event.target;
+    setSearchTerm({ ...searchTerm, searchTerm: value });
+    // console.log(searchTerm.searchTerm);
   };
+
+  const handleFormSubmit = async function(e) {
+    e.preventDefault();
+    const q = searchTerm.searchTerm;
+
+    // eslint-disable-next-line
+    const Results$ = await fetch(`/api/searchdrinks/${q}`)
+      .then
+      // alert(`Searched for drinks with ${q}`)
+      ();
+    const fetchedResults = await Results$.json();
+    setSearchResults(fetchedResults);
+
+    console.log("fetched results");
+    console.log(fetchedResults);
+  };
+
+  useEffect(() => {
+    setSearchResults();
+    const updateResults = async function(e) {
+      e.preventDefault();
+      const q = searchTerm.searchTerm;
+
+      // eslint-disable-next-line
+      const Results$ = await fetch(`/api/searchdrinks/${q}`)
+        .then
+        // alert(`Searched for drinks with ${q}`)
+        ();
+      const fetchedResults = await Results$.json();
+      setSearchResults(fetchedResults);
+
+      console.log("fetched results");
+      console.log(fetchedResults);
+    };
+  }, [searchResult]);
 
   return (
     <Paper>
       <Paper>
         {" "}
-        <form className={classes.container} noValidate autoComplete="on">
+        <form
+          className={classes.container}
+          noValidate
+          autoComplete="on"
+          onSubmit={handleFormSubmit}
+        >
           <TextField
             required
-            id="filled-required"
-            label="SearchTerm"
-            defaultValue="search by drink name"
+            id="Search-id"
+            label="searchTerm"
+            // defaultValue="Search for a drink"
+            // value={searchTerm.searchTerm}
             className={classes.textField}
+            onChange={handleChange}
             margin="normal"
             fullWidth
             variant="filled"
           />
-          <SearchField />
+          {/* <SearchField /> */}
           <Divider />
         </form>
       </Paper>
@@ -70,7 +107,7 @@ export default function RecipeForm() {
         </Typography>
       </Paper>
       <Paper className={classes.root}>
-        {/* <DrinkCardList /> */}
+        <searchResultList resultsR={searchResult} />
       </Paper>
     </Paper>
   );

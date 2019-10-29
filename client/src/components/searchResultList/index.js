@@ -13,15 +13,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function DrinkCardList(props) {
+export default function searchResultList(props) {
   const classes = useStyles();
-  const arr = props.barMenu;
+  const arr = props.resultsR;
 
   return (
     <List className={classes.root}>
       {/* {console.log(props.drinksIveRated)} */}
 
-      {Object.keys(props.barMenu).map(function(key) {
+      {Object.keys(arr).map(function(key) {
         return (
           <DrinkCard
             id={arr[key]._id}
@@ -34,3 +34,4 @@ export default function DrinkCardList(props) {
     </List>
   );
 }
+ 

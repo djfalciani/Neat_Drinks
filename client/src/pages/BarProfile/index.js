@@ -72,7 +72,7 @@ export default function BarProfile() {
         </Grid>
       </Paper>
 
-      <Paper className={classes.root}>{/* <DrinkCardList /> */}</Paper>
+      <Paper className={classes.root}></Paper>
 
       <Footer />
     </div>
