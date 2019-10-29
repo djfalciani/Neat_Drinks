@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#NEAT
+***
+*Have you ever wanted to know how your favorite bar or restaurant makes their tasty cocktails?*
 
-## Available Scripts
+###**NEAT** is the app for you! 
 
-In the project directory, you can run:
+![Birb, the Neat mascot](/client/public/images/birb.png)
 
-### `npm start`
+**NEAT** allows a bar or restaurant to upload recipes to some of their prized cocktails. Non-commercial users can then search the database for these recipes and rate them. Rated cocktail recipes are saved on the user's home page.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Neat logo]((/client/public/images/neat-Logo.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+###Collaborators
+-Dan Falciani   | *back end*  
+-Brendan McBryan  | *vision/management*  
+-Cody Ballard   | *front end*
 
-### `npm test`
+###Tech outline
+***
+Built in React, Neat uses MySQL to store the data users enter. Material UI was also used to bootstrap the front-end. Passport, Sequelize, and React Router were implemented as well.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###Usage
+***
+Using Neat is simple! From the landing page, login or create an account if you haven't already. 
 
-### `npm run build`
+![landing page](/client/public/images/landing-page.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Here, your profile page will display the drinks you've already rated and the bars that uploaded them. 
+~image goes here~
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To search the database by bar or cocktail name, go to the search page by clicking the **Birb** logo at the bottom of any page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Birb!](/client/public/images/neat-Logo-bird.png)
 
-### `npm run eject`
+There you can find a bar's page where they list their cocktails
+~image goes here~
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+or a specific drink you already know the name of. Give it a rating if you've tasted or made it!
+~image goes here~
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+###Future developments
+***
+For rollouts, we have some features planned:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+*Restructuring the data architecture so that drinks are made from a list of ingredients kept in the database. This way the data is more sanitized and uniform. Ultimately this would be a lot easier to maintain and provide a smoother experience for the user.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+*Allowing users to upload their own recipes and optionally link them to the recipes they found and used for inspiration. 
 
-## Learn More
+*Bars could be able to edit their home pages by uploading an image for a background/using their logo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*Adding a drink journal where a beginner could go through a variety of classic cocktails and take notes/add ratings to better discern their tastes. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+*Connecting to a map API so users could search for bars in any given area that have uploaded their drinks to Neat.
 
-### Code Splitting
+###Issues encountered
+Our issues in the front-end mostly stemmed from using Material UI. Given that it hooks into React and disallows the normal use of state, we had a lot of recalibrating to do-- our lessons in the bootcamp were more in the opposite direction. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+In the back-end, we had problems with manipulating data on tables that had been joined. Authentication also caused us significant delays. 
