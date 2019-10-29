@@ -1,40 +1,48 @@
 import React, { createContext, useReducer, useContext } from "react";
 
 // Use context to create Globally managed data...
-const UserContext = createContext({
-    id: 0,
-    userType: 0,
-});
-
+// const UserContext = createContext({
+//     authUser: {
+//         id: 0,
+//         userType: 0,
+//         authenticated: false
+//     }
+// });
+const UserContext = createContext();
 // create instance of a provider??
 const { Provider } = UserContext;
+
 
 // Creating reducer fnc that will only have 2 things, login & logout
 function reducer(state, action) {
     switch (action.type) {
         case "login":
-            return [
+            return {
                 ...state,
-                {
-                    id: action.id,
-                    userType: action.userType
-                }
-            ];
+                id: action.id,
+                userType: action.userType,
+                authenticated: true
+            };
         case "logout":
-            return [
+            return {
                 ...state,
-                {
-                    id: 0,
-                    userType: 0
-                }
-            ];
+                id: 0,
+                userType: 0,
+                authenticated: true
+            };
         default:
             return state;
     }
 };
 
 function UserProvider({value = [], ...props}) {
-    const [state, dispatch] = useReducer(reducer, []);
+    const [state, dispatch] = useReducer(reducer, {
+        id: 0,
+        userType: 0,
+        authenticated: false
+        // authUser: {}
+    });
+
     return <Provider value={[state, dispatch]} {...props} />;
 };
 

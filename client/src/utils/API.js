@@ -15,7 +15,7 @@ export default {
     },
     // Login
     getLogin: function(loginData) {
-      console.log("Api-GetLogin from Util Folder");
+      // console.log("Api-GetLogin from Util Folder");
       return axios.post("auth/login", loginData);
       // return axios.get("auth/test");
     },

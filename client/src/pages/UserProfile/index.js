@@ -22,17 +22,16 @@ function User() {
   const classes = useStyles();
   const [loggedUser, setLoggedUser] = useState({});
   const [ratedDrinks, setRatedDrinks] = useState({});
-  const [state, dispatch] = useUserContext();
-  // const [_, dispatch] = useUserContext();
+  const [stateUser, dispatch] = useUserContext();
 
   useEffect(() => {
     async function fetchData() {
       // Get the user info
-      // const loggedStateGlobalUser = state.id;
+      // const loggedStateGlobalUser = stateUser.id;
       // console.log(loggedStateGlobalUser);
-      const loadingUser = 2;
-      // const loadingUser = state.id;
-      console.log(loadingUser);
+      // const loadingUser = 2;
+      const loadingUser = stateUser.id;
+      // console.log(loadingUser);
       const loggedUser$ = await fetch(`/api/user/${loadingUser}`);
       const fetchedUser = await loggedUser$.json();
       // console.log(fetchedUser);
