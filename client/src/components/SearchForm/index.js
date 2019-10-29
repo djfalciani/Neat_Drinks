@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
-import SearchField from "../SearchField";
+// import SearchField from "../SearchField";
 import DrinkCardList from "../DrinkCardList";
 
 const useStyles = makeStyles(theme => ({
@@ -60,7 +60,7 @@ export default function RecipeForm() {
             fullWidth
             variant="filled"
           />
-          <SearchField />
+          {/* <SearchField /> */}
           <Divider />
         </form>
       </Paper>
