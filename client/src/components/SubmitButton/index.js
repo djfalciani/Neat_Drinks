@@ -26,7 +26,6 @@ export default function SubmitButton() {
         variant="contained"
         // fullWidth
         color="primary"
-        // className={classes.button}
       >
         Login
       </Button>

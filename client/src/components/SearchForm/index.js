@@ -5,8 +5,8 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
-import SearchField from "../SearchField";
-import searchResultList from "../searchResultList";
+// import SearchField from "../SearchField";
+import DrinkCardList from "../DrinkCardList";
 
 const useStyles = makeStyles(theme => ({
   root: {
