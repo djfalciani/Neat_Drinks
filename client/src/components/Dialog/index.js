@@ -9,6 +9,9 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Checkbox from "../../components/Checkbox";
 import API from "../../utils/API";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 
 const useStyles = makeStyles(theme => ({
@@ -28,7 +31,7 @@ export default function DialogBox() {
     email: "",
     password: "",
     userName: "",
-    userType: 0
+    radioVal: "business",
   });
 
   const handleChange = name => event => {
@@ -46,15 +49,23 @@ export default function DialogBox() {
   const handleSubmit = (e) => {
     //logic to add info to the database
     //e.preventDefault();
+
+    let userType = 0;
+
+    if (values.radioVal === "business") {
+      userType = 1;
+    } else {
+      userType = 2;
+    }
     
     const newUserData = {
       email: values.email,
       password: values.password,
       display_name: values.userName,
-      userTypeId: 2
+      userTypeId: userType
     };
 
-    console.log(newUserData);
+    // console.log(newUserData);
 
     API.createUser({newUserData}).then(dbNewUser => console.log(dbNewUser))
 
@@ -114,7 +125,11 @@ export default function DialogBox() {
 
           />
           <DialogContentText>business or personal?</DialogContentText>
-          <Checkbox />
+          <RadioGroup aria-label="account type" name="account-type" value={values.radioVal} onChange={handleChange('radioVal')}>
+            <FormControlLabel value="business" control={<Radio />} label="business" />
+            <FormControlLabel value="personal" control={<Radio />} label="personal" />
+          </RadioGroup>
+          {/* <Checkbox/> */}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="secondary">

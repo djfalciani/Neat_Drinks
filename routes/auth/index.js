@@ -13,8 +13,8 @@ router.post("/signup", function(req, res) {
     db.User.create({
         email: req.body.newUserData.email,
         password: req.body.newUserData.password,
-        // UserTypeId: req.body.newUserData.userTypeId,
-        UserTypeId: 2,
+        UserTypeId: parseInt(req.body.newUserData.userTypeId),
+        // UserTypeId: 1,
         display_name: req.body.newUserData.display_name
     })
     .then(function(dbUser) {

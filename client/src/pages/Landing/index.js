@@ -59,7 +59,7 @@ export default function Landing() {
       console.log(dbAuthUser);
       // Check userType Value
       if (dbAuthUser.data.UserTypeId = 2) {
-        history.push("/user")
+        history.push("/user/" + dbAuthUser.data.id)
       } else if (dbAuthUser.data.UserTypeId = 1) {
         history.push("/bar")
       } else {
