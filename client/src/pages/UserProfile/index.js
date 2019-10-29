@@ -8,6 +8,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
+// DJF - attempting to use context to access a Global Store...
+import { useUserContext } from "../../utils/GlobalState"
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -19,6 +22,7 @@ function User() {
   const classes = useStyles();
   const [loggedUser, setLoggedUser] = useState({});
   const [ratedDrinks, setRatedDrinks] = useState({});
+  const [_, dispatch] = useUserContext();
 
   useEffect(() => {
     async function fetchData() {

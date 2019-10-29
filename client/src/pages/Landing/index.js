@@ -12,6 +12,8 @@ import { TextField } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import API from "../../utils/API";
+// DJF - attempting to use context to access a Global Store...
+import { useUserContext } from "../../utils/GlobalState"
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -35,6 +37,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Landing() {
+  const [_, dispatch] = useUserContext();
   // DJF - brining in style themes...
   const classes = useStyles();
   // DJF - Getting text values...
@@ -58,14 +61,43 @@ export default function Landing() {
     }).then(dbAuthUser => {
       console.log(dbAuthUser);
       // Check userType Value
-      if (dbAuthUser.data.UserTypeId = 2) {
-        history.push("/user/" + dbAuthUser.data.id)
-      } else if (dbAuthUser.data.UserTypeId = 1) {
-        history.push("/bar")
+      if (dbAuthUser) {
+        // Update Global State...
+        dispatch({
+          type:"login",
+          id: dbAuthUser.data.id,
+          userType: dbAuthUser.data.UserTypeId
+        });
+
+        // Evaluate the User Type value and route accordingly...
+        if (dbAuthUser.data.UserTypeId = 2) {
+          // Move user to their profile...
+          history.push("/user/" + dbAuthUser.data.id)
+        } else  {
+          history.push("/bar")
+        }
+
       } else {
         // alert("No Account Found. Please sign up!")
         history.push("/")
       }
+      
+      // if (dbAuthUser.data.UserTypeId = 2) {
+      //   // Update Global State...
+      //   dispatch({
+      //     type:"login",
+      //     id: dbAuthUser.data.id,
+      //     userType: dbAuthUser.data.UserTypeId
+      //   });
+
+      //   // Move user to their profile...
+      //   history.push("/user/" + dbAuthUser.data.id)
+      // } else if (dbAuthUser.data.UserTypeId = 1) {
+      //   history.push("/bar")
+      // } else {
+      //   // alert("No Account Found. Please sign up!")
+      //   history.push("/")
+      // }
     })
   };
 
