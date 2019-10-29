@@ -19,15 +19,15 @@ export default function UserDrinkReviewCard(props) {
 
   return (
     <ListItem alignItems="flex-start">
-      <Link to={`/drink/${props.id}`}>
+      {/* <Link to={`/drink/${props.id}`}> */}
         <ListItemAvatar>
           <Avatar
             alt=""
             src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
           />
         </ListItemAvatar>
-      </Link>
-      ;
+      {/* </Link> */}
+
       <ListItemText
         primary={props.id}
         secondary={
