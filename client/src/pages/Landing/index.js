@@ -1,6 +1,6 @@
 // import React from "react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import Logo from "../../components/Logo";
 import LoginForm from "../../components/LoginForm";
 import DialogBox from "../../components/Dialog";
@@ -10,6 +10,7 @@ import Footer from "../../components/Footer";
 import API from "../../utils/API";
 
 export default function Landing() {
+  let history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -21,7 +22,15 @@ export default function Landing() {
     API.getLogin({
       email: email,
       password: password
-    }).then();
+    }).then(dbUser => {
+      if(!dbUser) {
+        history.push("/bar")
+      } else {
+        history.push("user/" + dbUser.data.id)
+      }
+    });
+    // API.createUser({
+    // }).then(dbUser => console.log(dbUser))
   };
 
   // textInput must be declared here so the ref can refer to it
@@ -33,7 +42,7 @@ export default function Landing() {
     console.log("btn Clicked");
     alert(test);
   }
-  
+
 
   // Login Btn Method
   // const handleSubmit = e => {
@@ -44,9 +53,10 @@ export default function Landing() {
   // };
 
   return (
+
     <div>
       <Logo />
-      
+
       {/* Option #1 - Using State Hook w/Controlled Forms and a Submit Method */}
       <form onSubmit={handleSubmit}>
         <input
@@ -66,7 +76,7 @@ export default function Landing() {
         {/* <button className="btn btn-success" type="submit">Submit</button> */}
         <button type="submit">Submit</button>
       </form>
-      
+
       {/* Option #2 - Using Ref */}
       {/* <input
         type="text"
@@ -78,11 +88,11 @@ export default function Landing() {
         onClick={handleClick}
       /> */}
 
-      <LoginForm/>
+      <LoginForm />
       {/* <SubmitButton onClick={() => handleClick()} />{<br></br>} */}
       <SubmitButton onClick={handleClick} />{<br></br>}
       <DialogBox />
-        <Footer />
+      <Footer />
     </div>
   );
 }

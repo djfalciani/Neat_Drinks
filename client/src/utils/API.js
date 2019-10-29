@@ -3,11 +3,20 @@ import axios from "axios";
 export default {
     // Create a User...
     createUser: function(userData) {
-      return axios.post("api/signup", userData);
+      const userData2 = {
+        email: 'test2@test2.com',
+        password: 'test123',
+        display_name: "User 1",
+        user_Type: "1"
+      };
+
+      return axios.post("auth/signup", userData2);
     },
     // Login
     getLogin: function(loginData) {
-      return axios.post("api/user2", loginData);
+      console.log("Api-GetLogin from Util Folder");
+      return axios.post("auth/login", loginData);
+      // return axios.get("auth/test");
     },
     // Gets all posts
     getPosts: function() {
