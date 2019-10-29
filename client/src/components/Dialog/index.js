@@ -8,6 +8,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Checkbox from "../../components/Checkbox";
+import API from "../../utils/API";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,6 +23,17 @@ const useStyles = makeStyles(theme => ({
 export default function DialogBox() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  // DJF - Controlled components
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+    userName: "",
+    userType: 0
+  });
+
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,8 +43,21 @@ export default function DialogBox() {
     setOpen(false);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     //logic to add info to the database
+    //e.preventDefault();
+    
+    const newUserData = {
+      email: values.email,
+      password: values.password,
+      display_name: values.userName,
+      userTypeId: 2
+    };
+
+    console.log(newUserData);
+
+    API.createUser({newUserData}).then(dbNewUser => console.log(dbNewUser))
+
     setOpen(false);
   };
 
@@ -60,6 +86,8 @@ export default function DialogBox() {
             label="email address"
             type="email"
             fullWidth
+            value={values.email}
+            onChange={handleChange('email')}
           />
           <TextField
             required
@@ -70,6 +98,8 @@ export default function DialogBox() {
             type="password"
             autoComplete="current-password"
             fullWidth
+            value={values.password}
+            onChange={handleChange('password')}
           />
           <TextField
             className={classes.content}
@@ -79,6 +109,8 @@ export default function DialogBox() {
             type="username"
             fullWidth
             helperText="this is the name people will use to search for you"
+            value={values.userName}
+            onChange={handleChange('userName')}
 
           />
           <DialogContentText>business or personal?</DialogContentText>
