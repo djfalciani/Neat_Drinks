@@ -4,10 +4,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 
+import { useUserContext } from "../../utils/GlobalState";
+
 const useStyles = makeStyles({
   root: {
     backgroundColor: "inherit",
-    textAlign: "center",
+    textAlign: "center"
   },
   card: {
     backgroundColor: "inherit",
@@ -15,11 +17,28 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Logo() {
+export default function LogoText() {
   const classes = useStyles();
 
+  const [state, dispatch] = useUserContext();
+
+  var theLink = "";
+  console.log("usertype below");
+  console.log(state.userType);
+
+  // Evaluate the User Type value and route accordingly...
+  if (state.userType === 1) {
+    // Move user to their profile...
+    // history.push("/user/" + dbAuthUser.data.id)
+    theLink = "/bar";
+    // history.push("/user");
+  } else {
+    theLink = "/user";
+    // history.push("/bar");
+  }
+
   return (
-    <Link to="/">
+    <Link to={theLink}>
       <Card className={classes.card}>
         <CardMedia
           component="img"
