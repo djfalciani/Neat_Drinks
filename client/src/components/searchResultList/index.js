@@ -19,12 +19,13 @@ export default function searchResultList(props) {
 
   return (
     <List className={classes.root}>
-      {/* {console.log(props.drinksIveRated)} */}
+      {console.log("you made it to the search result")}
+      {console.log(props.resultR)}
 
       {Object.keys(arr).map(function(key) {
         return (
           <DrinkCard
-            id={arr[key]._id}
+            id={arr[key].id}
             instructions={arr[key].instruction}
             drinkRating={arr[key].rating}
             drinkName={arr[key].dislpay_name}

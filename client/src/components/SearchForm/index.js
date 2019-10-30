@@ -4,6 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
+import searchResultList from "../searchResultList"
 
 import DrinkCardList from "../DrinkCardList";
 
@@ -14,10 +15,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function RecipeForm() {
+export default function SearchForm() {
   const classes = useStyles();
   const [searchTerm, setSearchTerm] = useState({ searchTerm: "" });
-  const [searchResult, setSearchResults] = useState({});
+  const [searchResult, setSearchResult] = useState({ searchResult: {} });
 
   // const handleChange = name => event => {
   //   setValues({ ...values, [name]: event.target.value });
@@ -38,14 +39,15 @@ export default function RecipeForm() {
       // alert(`Searched for drinks with ${q}`)
       ();
     const fetchedResults = await Results$.json();
-    setSearchResults(fetchedResults);
+    setSearchResult(fetchedResults);
 
     console.log("fetched results");
+    console.log(typeof fetchedResults);
     console.log(fetchedResults);
   };
 
   useEffect(() => {
-    setSearchResults();
+    // setSearchResults();
     const updateResults = async function(e) {
       e.preventDefault();
       const q = searchTerm.searchTerm;
@@ -56,12 +58,12 @@ export default function RecipeForm() {
         // alert(`Searched for drinks with ${q}`)
         ();
       const fetchedResults = await Results$.json();
-      setSearchResults(fetchedResults);
+      setSearchResult(fetchedResults);
 
       console.log("fetched results");
       console.log(fetchedResults);
     };
-  }, [searchResult]);
+  }, [setSearchResult]);
 
   return (
     <Paper>
@@ -94,7 +96,8 @@ export default function RecipeForm() {
         </Typography>
       </Paper>
       <Paper className={classes.root}>
-        <searchResultList resultsR={searchResult} />
+      <DrinkCardList barMenu={searchResult} />
+        {/* <searchResultList resultsR={searchResult} /> */}
       </Paper>
     </Paper>
   );

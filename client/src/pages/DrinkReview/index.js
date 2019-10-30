@@ -9,6 +9,8 @@ import DrinkReviewList from "../../components/DrinkReviewList";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
+import { useUserContext } from "../../utils/GlobalState";
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -23,23 +25,26 @@ export default function DrinkReview() {
   const [DrinkReviews, SetDrinkReviews] = useState({});
   const [DrinkReviews2, SetDrinkReviews2] = useState({});
   const [drinkAverage, SetDrinkAverage] = useState({ avg: 0 });
-  
+  const [drinktoLoad, dispatch] = useUserContext();
+  // const [stateUser, dispatch] = useUserContext();
+
   useEffect(() => {
     async function fetchData() {
       // ? Get the user info
-      const loadDrinkId = 2;
+      // console.log(req.params.id);
+      let loadDrinkId = 2;
       const userSearch = 3;
       const theDrink$ = await fetch(`/api/drink/${loadDrinkId}`);
       const fetchedDrink = await theDrink$.json();
       // console.log(fetchedDrink);
 
       setDrink(fetchedDrink);
-      
+
       // ? Get the drinks reviews
       const reviews$ = await fetch(`api/reviews/${loadDrinkId}`);
       const fetchedReviews = await reviews$.json();
       SetDrinkReviews(fetchedReviews);
-      
+
       // Get Drinks Reviews v2 - returns back all drink_User_Rating data + User_Name & Drink_Name
       const reviews2$ = await fetch(`api/reviews2/${loadDrinkId}`);
       const fetchedReviews2 = await reviews2$.json();
@@ -66,7 +71,7 @@ export default function DrinkReview() {
   return (
     <div>
       <LogoText />
-      
+
       <Paper className={classes.root}>
         <Typography variant="h5" component="h1" color="error">
           {drink.dislpay_name}
@@ -76,7 +81,7 @@ export default function DrinkReview() {
         </Typography>
       </Paper>
       <Paper className={classes.root}>
-      <Typography align="right" variant="h7" component="h7" color="error">
+        <Typography align="right" variant="h7" component="h7" color="error">
           {drink.instruction}
         </Typography>
       </Paper>

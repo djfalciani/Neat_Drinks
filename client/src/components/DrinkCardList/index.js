@@ -19,6 +19,8 @@ export default function DrinkCardList(props) {
 
   return (
     <List className={classes.root}>
+            {console.log("you made it to the Drink list result")}
+
 
       {Object.keys(props.barMenu).map(function(key) {
         return (
