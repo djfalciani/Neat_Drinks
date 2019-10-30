@@ -13,13 +13,7 @@ const useStyles = makeStyles(theme => ({
 export default function UserReviewList(props) {
   const classes = useStyles();
   const arr = props.drinksIveRated;
-  // console.log("User REview List");
-
-  // var Iratings = Object.keys(props.drinksIveRated).map(function(key) {
-  //   console.log(arr[key]);
-  // });
-
-  // console.log(typeof Iratings);
+  
 
   return (
     <List className={classes.root}>

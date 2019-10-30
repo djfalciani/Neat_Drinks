@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 export default function SearchForm() {
   const classes = useStyles();
   const [searchTerm, setSearchTerm] = useState({ searchTerm: "" });
-  const [searchResult, setSearchResult] = useState({ searchResult: {} });
+  const [searchResult, setSearchResult] = useState({});
 
 
   const handleChange = event => {
@@ -38,9 +38,9 @@ export default function SearchForm() {
     const fetchedResults = await Results$.json();
     setSearchResult(fetchedResults);
 
-    console.log("fetched results");
-    console.log(typeof fetchedResults);
-    console.log(fetchedResults);
+    // console.log("fetched results");
+    // console.log(typeof fetchedResults);
+    // console.log(fetchedResults);
   };
 
   useEffect(() => {

@@ -30,9 +30,7 @@ export default function DrinkReview() {
   useEffect(() => {
     async function fetchData() {
       // ? Get the user info
-      // const loadDrinkId = 2;
-      // const userSearch = 3;
-      // DJF: From Global State...
+      // ! DJF: From Global State...
       let drinkId     = 0;
       let drinkOwner  = 0;
 
