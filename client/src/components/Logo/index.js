@@ -18,7 +18,7 @@
     const classes = useStyles();
 
     return (
-      <Link to="/">
+      <Link to="/user">
         <Card className={classes.card}>
           <CardMedia
             component="img"
