@@ -23,8 +23,8 @@ export default function LogoText() {
   const [state, dispatch] = useUserContext();
 
   var theLink = "";
-  console.log("usertype below");
-  console.log(state.userType);
+  // console.log("usertype below");
+  // console.log(state.userType);
 
   // Evaluate the User Type value and route accordingly...
   if (state.userType === 1) {
