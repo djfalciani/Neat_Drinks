@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import { useHistory } from "react-router-dom";
 
 import Avatar from "@material-ui/core/Avatar";
 import ListItem from "@material-ui/core/ListItem";
@@ -34,9 +35,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const handleClick = () => {};
 export default function DrinkCard(props) {
   const classes = useStyles();
+  const history = useHistory();
+
+  const handleClick = () => {
+    alert(`you clicked the drink card-${props.id}`);
+    history.push(`/drink/${props.id}`);
+  };
 
   return (
     <ListItem alignItems="flex-start">
@@ -45,7 +51,8 @@ export default function DrinkCard(props) {
           alt=""
           src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
           data-id={props.id}
-          link="`./drinkreview/${props.id}`"
+          onClick={handleClick}
+          // link="`./drinkreview/${props.id}`"
         />
       </ListItemAvatar>
       <ListItemText
