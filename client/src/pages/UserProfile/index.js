@@ -14,6 +14,9 @@ import Footer from "../../components/Footer";
 import UserReviewList from "../../components/UserReviewList";
 
 
+// DJF - attempting to use context to access a Global Store...
+import { useUserContext } from "../../utils/GlobalState"
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -26,12 +29,19 @@ function User() {
   // States
   const [loggedUser, setLoggedUser] = useState({});
   const [ratedDrinks, setRatedDrinks] = useState({});
+  const [stateUser, dispatch] = useUserContext();
 
   useEffect(() => {
     async function fetchData() {
-      // Get the user info
-      const loadingUser = 1;
-
+      // Get the user info from Global State. if we don't have an object just hard code to 2 for now...
+      let loadingUser = stateUser.id;
+      
+      if (stateUser.id === 0) {
+        loadingUser =2;
+      } else {
+        loadingUser = stateUser.id;
+      }
+      // console.log(loadingUser);
       const loggedUser$ = await fetch(`/api/user/${loadingUser}`);
       const fetchedUser = await loggedUser$.json();
 
