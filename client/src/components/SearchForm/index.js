@@ -34,6 +34,9 @@ export default function RecipeForm() {
   const [searchTerm, setSearchTerm] = useState({ searchTerm: "" });
   const [searchResult, setSearchResults] = useState({});
 
+  // const handleChange = name => event => {
+  //   setValues({ ...values, [name]: event.target.value });
+  // };
   const handleChange = event => {
     const { value } = event.target;
     setSearchTerm({ ...searchTerm, searchTerm: value });
