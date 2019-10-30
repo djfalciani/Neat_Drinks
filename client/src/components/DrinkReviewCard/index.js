@@ -37,7 +37,6 @@ export default function DrinkReviewCard(props) {
           </React.Fragment>
         }
       />
-
       <ListItemAvatar>{props.drinkRating}</ListItemAvatar>
     </ListItem>
   );

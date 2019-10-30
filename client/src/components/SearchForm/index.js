@@ -4,7 +4,6 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-import searchResultList from "../searchResultList"
 
 import DrinkCardList from "../DrinkCardList";
 
@@ -20,9 +19,7 @@ export default function SearchForm() {
   const [searchTerm, setSearchTerm] = useState({ searchTerm: "" });
   const [searchResult, setSearchResult] = useState({ searchResult: {} });
 
-  // const handleChange = name => event => {
-  //   setValues({ ...values, [name]: event.target.value });
-  // };
+
   const handleChange = event => {
     const { value } = event.target;
     setSearchTerm({ ...searchTerm, searchTerm: value });
@@ -48,6 +45,7 @@ export default function SearchForm() {
 
   useEffect(() => {
     // setSearchResults();
+    // eslint-disable-next-line
     const updateResults = async function(e) {
       e.preventDefault();
       const q = searchTerm.searchTerm;
@@ -60,8 +58,8 @@ export default function SearchForm() {
       const fetchedResults = await Results$.json();
       setSearchResult(fetchedResults);
 
-      console.log("fetched results");
-      console.log(fetchedResults);
+      // console.log("fetched results");
+      // console.log(fetchedResults);
     };
   }, [setSearchResult]);
 

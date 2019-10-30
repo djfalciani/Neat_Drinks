@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function BarProfile() {
   const classes = useStyles();
-
+ 
+  // eslint-disable-next-line
   const [stateUser, dispatch] = useUserContext();
 
   const [loggedUser, setLoggedUser] = useState({});
@@ -28,6 +29,7 @@ export default function BarProfile() {
 
   useEffect(() => {
     async function fetchData() {
+     
       // Get the user info
 
       let loadingUser = stateUser.id;

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import MenuItem from "@material-ui/core/MenuItem";
 
 import { useUserContext } from "../../utils/GlobalState";
 
@@ -15,6 +14,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ReviewForm() {
   const classes = useStyles();
+  // eslint-disable-next-line
   const [stateUser, dispatch] = useUserContext();
 
   const [userReview, setUserReview] = useState({
@@ -25,7 +25,7 @@ export default function ReviewForm() {
   });
 
   const handleRatingChange = event => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     const numRating = parseInt(value);
     setUserReview({
       ...userReview,
@@ -59,7 +59,7 @@ export default function ReviewForm() {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(alert("drink review saved!"));
+    }).then(() => {});
   };
 
   useEffect(() => {}, []);
