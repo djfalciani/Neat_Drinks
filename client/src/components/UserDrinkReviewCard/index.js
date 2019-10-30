@@ -29,7 +29,7 @@ export default function UserDrinkReviewCard(props) {
       {/* </Link> */}
 
       <ListItemText
-        primary={props.id}
+        primary={props.drinkName}
         secondary={
           <React.Fragment>
             <Typography

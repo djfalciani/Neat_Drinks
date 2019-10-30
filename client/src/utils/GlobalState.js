@@ -28,7 +28,17 @@ function reducer(state, action) {
                 ...state,
                 id: 0,
                 userType: 0,
-                authenticated: true
+                authenticated: false
+            };
+        case "setdrink":
+            return {
+                ...state,
+                drinkId: action.drinkId
+            };
+        case "setdrinkowner":
+            return {
+                ...state,
+                drinkOwner: action.drinkOwner
             };
         default:
             return state;
@@ -39,8 +49,9 @@ function UserProvider({value = [], ...props}) {
     const [state, dispatch] = useReducer(reducer, {
         id: 0,
         userType: 0,
-        authenticated: false
-        // authUser: {}
+        authenticated: false,
+        drinkId: 0,
+        drinkOwner: 0
     });
 
     return <Provider value={[state, dispatch]} {...props} />;

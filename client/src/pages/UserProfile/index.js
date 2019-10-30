@@ -38,12 +38,12 @@ function User() {
       } else {
         loadingUser = stateUser.id;
       }
-      // console.log(loadingUser);
       const loggedUser$ = await fetch(`/api/user/${loadingUser}`);
       const fetchedUser = await loggedUser$.json();
-
+      
       setLoggedUser(fetchedUser);
-
+      
+      // console.log(loadingUser);
       const ratedDrinks$ = await fetch(`api/userrated/${loadingUser}`);
       const fetchedDrinks = await ratedDrinks$.json();
       // console.log(fetchedDrinks);

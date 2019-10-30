@@ -10,6 +10,7 @@ import Avatar from "@material-ui/core/Avatar";
 import ListItem from "@material-ui/core/ListItem";
 // import abstractlogo from "../../../public/images/neat-Logo-abstract.png"
 import Typography from "@material-ui/core/Typography";
+import { useUserContext } from "../../utils/GlobalState"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,9 +21,25 @@ const useStyles = makeStyles(theme => ({
 
 export default function DrinkCard(props) {
   const classes = useStyles();
+  const history = useHistory();
+  const [state, dispatch] = useUserContext();
 
   const handleClick = () => {
-    alert(`you clicked the drink card-${props.id}`);
+    // alert(`you clicked the drink card-${props.id}`);
+    // console.log(props.id);
+    let newDrinkId = props.id;
+    // dispatches...
+    dispatch({
+      type: "setdrink",
+      drinkId: newDrinkId
+    });
+
+    dispatch({
+      type: "setdrinkowner",
+      drinkOwner: 3
+    });
+    
+    history.push(`/drinkreview`);
   };
 
   return (

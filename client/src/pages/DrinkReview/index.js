@@ -25,34 +25,49 @@ export default function DrinkReview() {
   const [DrinkReviews, SetDrinkReviews] = useState({});
   const [DrinkReviews2, SetDrinkReviews2] = useState({});
   const [drinkAverage, SetDrinkAverage] = useState({ avg: 0 });
-  const [drinktoLoad, dispatch] = useUserContext();
-  // const [stateUser, dispatch] = useUserContext();
-
+  const [state, dispatch] = useUserContext();
+  
   useEffect(() => {
     async function fetchData() {
       // ? Get the user info
-      // console.log(req.params.id);
-      let loadDrinkId = 2;
-      const userSearch = 3;
-      const theDrink$ = await fetch(`/api/drink/${loadDrinkId}`);
+      // const loadDrinkId = 2;
+      // const userSearch = 3;
+      // DJF: From Global State...
+      let drinkId     = 0;
+      let drinkOwner  = 0;
+
+      // If something went wrong w/Global State value then return back hard coded numbers
+      if (state.drinkId === 0 || state.drinkOwner === 0 ) {
+        drinkId = 2;
+        drinkOwner = 3;
+      } else {
+        drinkId = state.drinkId;
+        drinkOwner = state.drinkOwner;
+      }
+
+      const theDrink$ = await fetch(`/api/drink/${drinkId}`);
       const fetchedDrink = await theDrink$.json();
       // console.log(fetchedDrink);
-
+      
+      // DJF - We get the OwnerId from the Drink record...
+      drinkOwner = fetchedDrink.UserId;
+      // console.log(`Drink Owner: ${drinkOwner}`);
+      
       setDrink(fetchedDrink);
 
       // ? Get the drinks reviews
-      const reviews$ = await fetch(`api/reviews/${loadDrinkId}`);
+      const reviews$ = await fetch(`api/reviews/${drinkId}`);
       const fetchedReviews = await reviews$.json();
       SetDrinkReviews(fetchedReviews);
 
       // Get Drinks Reviews v2 - returns back all drink_User_Rating data + User_Name & Drink_Name
-      const reviews2$ = await fetch(`api/reviews2/${loadDrinkId}`);
+      const reviews2$ = await fetch(`api/reviews2/${drinkId}`);
       const fetchedReviews2 = await reviews2$.json();
       console.log(fetchedReviews2);
       SetDrinkReviews2(fetchedReviews2);
 
       // ? Get the Drink Maker
-      const maker$ = await fetch(`api/user/${userSearch}`);
+      const maker$ = await fetch(`api/user/${drinkOwner}`);
       const fetchedMaker = await maker$.json();
       setdrinkMaker(fetchedMaker);
 

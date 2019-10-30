@@ -13,15 +13,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ReviewForm() {
+  const [state, dispatch] = useUserContext();
   const classes = useStyles();
   // eslint-disable-next-line
   const [stateUser, dispatch] = useUserContext();
 
   const [userReview, setUserReview] = useState({
     Rating: 0,
-    Review: "",
-    DrinkId: 2,
-    UserId: stateUser.id
+    Review: ""
   });
 
   const handleRatingChange = event => {
@@ -46,12 +45,16 @@ export default function ReviewForm() {
   const handleFormSubmit = async function(e) {
     e.preventDefault();
     const theReview = {
-      UserId: userReview.UserId,
-      DrinkId: userReview.DrinkId,
+      // UserId: userReview.UserId,
+      // DrinkId: userReview.DrinkId,
+      UserId: state.id,
+      DrinkId: state.drinkId,
       Review: userReview.Review,
       Rating: userReview.Rating
     };
+    // console.log(theReview);
     // eslint-disable-next-line
+    // const response = await fetch("api/createreview", {
     const response = await fetch("api/createreview", {
       method: "POST",
       body: JSON.stringify(theReview),
