@@ -23,7 +23,7 @@ export default function DrinkCardList(props) {
       {Object.keys(props.barMenu).map(function(key) {
         return (
           <DrinkCard
-            id={arr[key]._id}
+            id={arr[key].id}
             instructions={arr[key].instruction}
             drinkRating={arr[key].rating}
             drinkName={arr[key].dislpay_name}
