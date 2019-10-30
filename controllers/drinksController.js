@@ -85,7 +85,14 @@ module.exports = {
     //   include: [db.User]
     // })
     // const query = `SELECT dur.*, t.display_name User_Name, d.dislpay_name Drink_Name FROM neat_drinks_db.drink_user_ratings As dur INNER JOIN neat_drinks_db.users as t on dur.UserId = t.id INNER JOIN neat_drinks_db.drinks as d on dur.DrinkId = d.id where dur.DrinkId = ${req.params.id};`;
-    const query = `SELECT dur.*, t.display_name User_Name, d.dislpay_name Drink_Name, d.UserId drinkOwner, (select u2.display_name from neat_drinks_db.users as u2 where u2.id = d.UserId) owner_name FROM neat_drinks_db.drink_user_ratings As dur  INNER JOIN neat_drinks_db.users as t on dur.UserId = t.id  INNER JOIN neat_drinks_db.drinks as d on dur.DrinkId = d.id  where dur.DrinkId = ${req.params.id};`;
+    // const query = `SELECT dur.*, t.display_name User_Name, d.dislpay_name Drink_Name, d.UserId drinkOwner, (select u2.display_name from neat_drinks_db.users as u2 where u2.id = d.UserId) owner_name FROM neat_drinks_db.drink_user_ratings As dur  INNER JOIN neat_drinks_db.users as t on dur.UserId = t.id  INNER JOIN neat_drinks_db.drinks as d on dur.DrinkId = d.id  where dur.DrinkId = ${req.params.id};`;
+    let query = "";
+    if (process.env.NODE_ENV === "production") {
+      query = `SELECT dur.*, t.display_name User_Name, d.dislpay_name Drink_Name, d.UserId drinkOwner, (select u2.display_name from c9o52bgidux04ro3.Users as u2 where u2.id = d.UserId) owner_name FROM c9o52bgidux04ro3.Drink_User_Ratings As dur  INNER JOIN c9o52bgidux04ro3.Users as t on dur.UserId = t.id  INNER JOIN c9o52bgidux04ro3.Drinks as d on dur.DrinkId = d.id  where dur.DrinkId = ${req.params.id};`
+
+    } else {
+      query = `SELECT dur.*, t.display_name User_Name, d.dislpay_name Drink_Name, d.UserId drinkOwner, (select u2.display_name from neat_drinks_db.users as u2 where u2.id = d.UserId) owner_name FROM neat_drinks_db.drink_user_ratings As dur  INNER JOIN neat_drinks_db.users as t on dur.UserId = t.id  INNER JOIN neat_drinks_db.drinks as d on dur.DrinkId = d.id  where dur.DrinkId = ${req.params.id};`;
+    }
     db.sequelize
       .query(query, { type: db.sequelize.QueryTypes.SELECT })
 
