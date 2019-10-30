@@ -11,33 +11,13 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing(4),
-    margin: "auto",
-    marginTop: 1,
-    maxWidth: 500
-  },
-  box: {
-    border: 1,
-    borderColor: "primary.main"
-  },
-  image: {
-    width: 72,
-    height: 72
-  },
-  img: {
-    margin: "auto",
-    display: "block",
-    maxWidth: "100%",
-    background: "orange"
+    padding: theme.spacing(3, 2),
+    margin: 3
   }
 }));
 
 export default function DrinkCard(props) {
   const classes = useStyles();
-  const history = useHistory();
 
   const handleClick = () => {
     alert(`you clicked the drink card-${props.id}`);
