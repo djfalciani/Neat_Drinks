@@ -41,7 +41,7 @@ export default function DrinkCard(props) {
 
   const handleClick = () => {
     alert(`you clicked the drink card-${props.id}`);
-    history.push(`/drink/${props.id}`);
+   
   };
 
   return (

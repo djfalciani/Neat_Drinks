@@ -70,7 +70,7 @@ export default function Landing() {
         });
 
         // Evaluate the User Type value and route accordingly...
-        if (dbAuthUser.data.UserTypeId = 2) {
+        if (dbAuthUser.data.UserTypeId === 2) {
           // Move user to their profile...
           // history.push("/user/" + dbAuthUser.data.id)
           history.push("/user/")

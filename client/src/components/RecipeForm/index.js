@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
+import { useUserContext } from "../../utils/GlobalState";
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -12,10 +14,13 @@ const useStyles = makeStyles(theme => ({
 
 export default function RecipeForm() {
   const classes = useStyles();
+  const [stateUser, dispatch] = useUserContext();
+
   const [drinkName, setDrinkName] = useState({ drinkName: "" });
   const [drinkInstructions, setDrinkInstructions] = useState({
     drinkInstructions: "enter description"
   });
+
 
   const handleNameChange = event => {
     console.log(event.target.value);
@@ -37,8 +42,16 @@ export default function RecipeForm() {
   const handleFormSubmit = async function(e) {
     e.preventDefault();
     const theName = drinkName.drinkName;
+    let loadingUser = stateUser.id;
+    
+    if (stateUser.id === 0) {
+      loadingUser = 3;
+    } else {
+      loadingUser = stateUser.id;
+    }
+
     const recipe = {
-      UserId: 3,
+      UserId: loadingUser,
       dislpay_name: theName,
       instruction: drinkInstructions.drinkInstructions
     };
@@ -50,9 +63,7 @@ export default function RecipeForm() {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(
-      alert("drink recipe saved!")
-    );
+    }).then(alert("drink recipe saved!"));
   };
 
   useEffect(() => {}, []);
@@ -93,7 +104,6 @@ export default function RecipeForm() {
         type="submit"
         value="Create"
         color="primary"
-        // onClick={handleFormSubmit}
       >
         Create
       </Button>

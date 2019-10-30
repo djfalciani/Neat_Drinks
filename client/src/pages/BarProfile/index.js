@@ -9,6 +9,8 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import DrinkCardList from "../../components/DrinkCardList";
 
+import { useUserContext } from "../../utils/GlobalState";
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -18,16 +20,26 @@ const useStyles = makeStyles(theme => ({
 
 export default function BarProfile() {
   const classes = useStyles();
+
+  const [stateUser, dispatch] = useUserContext();
+
   const [loggedUser, setLoggedUser] = useState({});
   const [barsMenu, setbarsMenu] = useState({});
 
   useEffect(() => {
     async function fetchData() {
       // Get the user info
-      const loadingUser = 3;
+
+      let loadingUser = stateUser.id;
+
+      if (stateUser.id === 0) {
+        loadingUser = 3;
+      } else {
+        loadingUser = stateUser.id;
+      }
+
       const loggedUser$ = await fetch(`/api/user/${loadingUser}`);
       const fetchedUser = await loggedUser$.json();
-      // console.log(fetchedUser);
 
       setLoggedUser(fetchedUser);
 
