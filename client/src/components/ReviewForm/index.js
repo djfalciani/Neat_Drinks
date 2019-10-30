@@ -16,7 +16,7 @@ export default function ReviewForm() {
   const [state, dispatch] = useUserContext();
   const classes = useStyles();
   // eslint-disable-next-line
-  const [stateUser, dispatch] = useUserContext();
+  // const [stateUser, dispatch] = useUserContext();
 
   const [userReview, setUserReview] = useState({
     Rating: 0,
