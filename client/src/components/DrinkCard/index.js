@@ -50,7 +50,6 @@ export default function DrinkCard(props) {
           src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
           data-id={props.id}
           onClick={handleClick}
-          // link="`./drinkreview/${props.id}`"
         />
       </ListItemAvatar>
       <ListItemText
