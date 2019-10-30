@@ -42,24 +42,21 @@ export default function DrinkCard(props) {
   const [state, dispatch] = useUserContext();
 
   const handleClick = () => {
-    alert(`you clicked the drink card-${props.id}`);
-    setDrinkId();
-    setDrinkOwner();
-    history.push(`/drink`);
-  };
-
-  const setDrinkId = () => {
+    // alert(`you clicked the drink card-${props.id}`);
+    // console.log(props.id);
+    let newDrinkId = props.id;
+    // dispatches...
     dispatch({
-      type: "SET_DRINK",
-      drinkId: props.id
+      type: "setdrink",
+      drinkId: newDrinkId
     });
-  };
-  
-  const setDrinkOwner = () => {
+
     dispatch({
-      type: "SET_DRINK_OWNER",
+      type: "setdrinkowner",
       drinkOwner: 3
     });
+    
+    history.push(`/drinkreview`);
   };
 
   return (
@@ -70,7 +67,7 @@ export default function DrinkCard(props) {
           src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
           data-id={props.id}
           onClick={handleClick}
-          // link="./drinkreview/${props.id}"
+          // link="`./drinkreview/${props.id}`"
         />
       </ListItemAvatar>
       <ListItemText

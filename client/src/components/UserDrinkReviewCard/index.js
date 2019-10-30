@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
-    margin: 3
+    margin: 3,
   }
 }));
 
@@ -18,18 +18,18 @@ export default function UserDrinkReviewCard(props) {
   // console.log(props);
 
   return (
-    <ListItem alignItems="flex-start">
+    <ListItem alignItems="flex-start" className={classes.root}>
       {/* <Link to={`/drink/${props.id}`}> */}
-        <ListItemAvatar>
-          <Avatar
-            alt=""
-            src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
-          />
-        </ListItemAvatar>
+      <ListItemAvatar>
+        <Avatar
+          alt=""
+          src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
+        />
+      </ListItemAvatar>
       {/* </Link> */}
 
       <ListItemText
-        primary={props.id}
+        primary={props.drinkName}
         secondary={
           <React.Fragment>
             <Typography
@@ -43,6 +43,7 @@ export default function UserDrinkReviewCard(props) {
           </React.Fragment>
         }
       />
+
       <ListItemAvatar>{props.drinkRating}</ListItemAvatar>
     </ListItem>
   );

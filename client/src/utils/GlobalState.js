@@ -28,18 +28,17 @@ function reducer(state, action) {
                 ...state,
                 id: 0,
                 userType: 0,
-                authenticated: false,
-                drinks: []
+                authenticated: false
             };
-        case "SET_DRINK":
+        case "setdrink":
             return {
                 ...state,
-                drinkId: action.id
+                drinkId: action.drinkId
             };
-        case "SET_DRINK_OWNER":
+        case "setdrinkowner":
             return {
                 ...state,
-                drinkOwner: action.id
+                drinkOwner: action.drinkOwner
             };
         default:
             return state;
