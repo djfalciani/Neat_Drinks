@@ -9,6 +9,15 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     margin: 6
+  }, 
+  button: {
+    padding: theme.spacing(2),
+    margin: theme.spacing(1),
+    marginLeft: 120,
+    width: 250
+  },
+  textfield: {
+    width: 250,
   }
 }));
 
@@ -80,22 +89,8 @@ export default function ReviewForm() {
         multiline
         fullWidth
         rows="2"
-        // helperText="Place your Drink Recipe here"
       />
-      {/* <RatingSlider value={userReview.Rating} onChange={handleReviewChange} /> */}
-      {/* <TextField
-        id="your-review"
-        label="Your Rating"
-        name="Rating"
-        onChange={handleReviewChange}
-        className={classes.textField}
-        margin="normal"
-        variant="outlined"
-        fullWidth
-      /> */}
-
       <TextField
-        // select
         fullWidth
         name="Rating"
         margin="normal"
@@ -103,18 +98,14 @@ export default function ReviewForm() {
         className={classes.textField}
         value={userReview.Rating}
         onChange={handleRatingChange}
-        // InputProps={{
-        //   startAdornment: <InputAdornment position="start">Drink Score</InputAdornment>
-        // }}
       ></TextField>
 
       <Button
         className={classes.button}
-        fullWidth
-        variant="outlined"
         type="submit"
         value="submit"
         color="primary"
+        
         // onClick={handleFormSubmit}
       >
         submit

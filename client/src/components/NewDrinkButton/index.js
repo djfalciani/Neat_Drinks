@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1)
+    
   },
   input: {
     display: "none"
@@ -23,9 +24,7 @@ export default function NewDrinkButton() {
       <Button
         className={classes.button}
         fullWidth
-        // href="/recipe"
-        color="secondary"
-        variant="outlined"
+        color="primary"
         // onClick={handleSubmit}
       >
         Add Drink
