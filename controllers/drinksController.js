@@ -53,8 +53,18 @@ module.exports = {
   },
   createReview2: function(req, res) {
     // console.log(req.body);
-    let query = "INSERT INTO `neat_drinks_db`.`Drink_User_Ratings` (`Rating`, `Review`, `createdAt`, `updatedAt`, `DrinkId`, `UserId`)" + ` VALUES ('${req.body.Rating}', '${req.body.Review}', sysdate(), Sysdate(), '${req.body.DrinkId}', '${req.body.UserId}');`;
-    // console.log(query);
+    // c9o52bgidux04ro3
+    let query = "";
+    if (process.env.NODE_ENV === "production") {
+      query =
+        "INSERT INTO `c9o52bgidux04ro3`.`Drink_User_Ratings` (`Rating`, `Review`, `createdAt`, `updatedAt`, `DrinkId`, `UserId`)" +
+        ` VALUES ('${req.body.Rating}', '${req.body.Review}', sysdate(), Sysdate(), '${req.body.DrinkId}', '${req.body.UserId}');`;
+    } else {
+      query =
+        "INSERT INTO `neat_drinks_db`.`Drink_User_Ratings` (`Rating`, `Review`, `createdAt`, `updatedAt`, `DrinkId`, `UserId`)" +
+        ` VALUES ('${req.body.Rating}', '${req.body.Review}', sysdate(), Sysdate(), '${req.body.DrinkId}', '${req.body.UserId}');`;
+      // console.log(query);
+    }
     db.sequelize
       .query(query, { type: db.sequelize.QueryTypes.INSERT })
       .then(dbReview => res.json(dbReview))
