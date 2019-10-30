@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem';
 import RatingSlider from "../../components/RatingSlider";
-import { userInfo } from "os";
+import { useUserContext } from "../../utils/GlobalState";
 
 const ranges = [
   {
@@ -34,12 +34,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ReviewForm() {
+  const [state, dispatch] = useUserContext();
   const classes = useStyles();
   const [userReview, setUserReview] = useState({
     Rating: 0,
-    Review: "",
-    DrinkId: 2,
-    UserId: 2
+    Review: ""
   });
 
   const handleRatingChange = event =>{
@@ -64,12 +63,16 @@ export default function ReviewForm() {
   const handleFormSubmit = async function(e) {
     e.preventDefault();
     const theReview = {
-      UserId: userReview.UserId,
-      DrinkId: userReview.DrinkId,
+      // UserId: userReview.UserId,
+      // DrinkId: userReview.DrinkId,
+      UserId: state.id,
+      DrinkId: state.drinkId,
       Review: userReview.Review,
       Rating: userReview.Rating
     };
+    // console.log(theReview);
     // eslint-disable-next-line
+    // const response = await fetch("api/createreview", {
     const response = await fetch("api/createreview", {
       method: "POST",
       body: JSON.stringify(theReview),

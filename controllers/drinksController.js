@@ -42,7 +42,7 @@ module.exports = {
     });
   },
   createReview: function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     db.Drink_User_Rating.create({
       Rating: req.body.Rating,
       Review: req.body.Review,
@@ -52,12 +52,31 @@ module.exports = {
       res.json(dbReview);
     });
   },
+  createReview2: function(req, res) {
+    // console.log(req.body);
+    let query = "INSERT INTO `neat_drinks_db`.`Drink_User_Ratings` (`Rating`, `Review`, `createdAt`, `updatedAt`, `DrinkId`, `UserId`)" + ` VALUES ('${req.body.Rating}', '${req.body.Review}', sysdate(), Sysdate(), '${req.body.DrinkId}', '${req.body.UserId}');`;
+    // console.log(query);
+    db.sequelize
+      .query(query, { type: db.sequelize.QueryTypes.INSERT })
+      .then(dbReview => res.json(dbReview))
+      .catch(err => res.status(422).json(err));
+
+    // db.Drink_User_Rating.create({
+    //   Rating: req.body.Rating,
+    //   Review: req.body.Review,
+    //   DrinkId: req.body.DrinkId,
+    //   UserId: req.body.UserId
+    // }).then(function(dbReview) {
+    //   res.json(dbReview);
+    // });
+  },
   findDrinkReviews2: function(req, res) {
     // db.Drink_User_Rating.findAll({
     //   where: {DrinkId: req.params.id},
     //   include: [db.User]
     // })
-    const query = `SELECT dur.*, t.display_name User_Name, d.dislpay_name Drink_Name FROM neat_drinks_db.drink_user_ratings As dur INNER JOIN neat_drinks_db.users as t on dur.UserId = t.id INNER JOIN neat_drinks_db.drinks as d on dur.DrinkId = d.id where dur.DrinkId = ${req.params.id};`;
+    // const query = `SELECT dur.*, t.display_name User_Name, d.dislpay_name Drink_Name FROM neat_drinks_db.drink_user_ratings As dur INNER JOIN neat_drinks_db.users as t on dur.UserId = t.id INNER JOIN neat_drinks_db.drinks as d on dur.DrinkId = d.id where dur.DrinkId = ${req.params.id};`;
+    const query = `SELECT dur.*, t.display_name User_Name, d.dislpay_name Drink_Name, d.UserId drinkOwner, (select u2.display_name from neat_drinks_db.users as u2 where u2.id = d.UserId) owner_name FROM neat_drinks_db.drink_user_ratings As dur  INNER JOIN neat_drinks_db.users as t on dur.UserId = t.id  INNER JOIN neat_drinks_db.drinks as d on dur.DrinkId = d.id  where dur.DrinkId = ${req.params.id};`;
     db.sequelize
       .query(query, { type: db.sequelize.QueryTypes.SELECT })
 
@@ -65,7 +84,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   searchDrinks: function(req, res) {
-    console.log(req.params.q);
+    // console.log(req.params.q);
     query = "%" + req.params.q + "%";
     db.Drink.findAll({
       where: {

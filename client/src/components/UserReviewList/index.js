@@ -31,6 +31,7 @@ export default function UserReviewList(props) {
             id={arr[key].DrinkId}
             drinkReview={arr[key].Review}
             drinkRating={arr[key].Rating}
+            drinkName={arr[key].drink_Name}
           />
         );
       })}
