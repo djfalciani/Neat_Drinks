@@ -5,27 +5,12 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 
-// import SearchField from "../SearchField";
 import DrinkCardList from "../DrinkCardList";
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     margin: 3
-  },
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
-  },
-  dense: {
-    marginTop: theme.spacing(2)
-  },
-  menu: {
-    width: 200
   }
 }));
 
@@ -97,7 +82,6 @@ export default function RecipeForm() {
             fullWidth
             variant="filled"
           />
-          {/* <SearchField /> */}
           <Divider />
         </form>
       </Paper>

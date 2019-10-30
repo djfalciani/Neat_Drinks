@@ -1,10 +1,18 @@
+
 import React, { useEffect, useState } from "react";
+
+// * Material UI 
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import { Container } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+
+// * Components
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
 import UserReviewList from "../../components/UserReviewList";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 function User() {
   const classes = useStyles();
+  // States
   const [loggedUser, setLoggedUser] = useState({});
   const [ratedDrinks, setRatedDrinks] = useState({});
 
@@ -22,9 +31,9 @@ function User() {
     async function fetchData() {
       // Get the user info
       const loadingUser = 1;
+
       const loggedUser$ = await fetch(`/api/user/${loadingUser}`);
       const fetchedUser = await loggedUser$.json();
-      // console.log(fetchedUser);
 
       setLoggedUser(fetchedUser);
 
@@ -37,22 +46,26 @@ function User() {
   }, []);
 
   return (
-    <div>
+    <Container>
       <LogoText />
       <Paper className={classes.root}>
-        <Typography variant="h5" component="h1" color="primary">
+        <Typography variant="h5" component="h1" color="error">
           {loggedUser.display_name}
         </Typography>
         <Typography variant="h7" component="h5" color="secondary">
           {loggedUser.tag_line}
         </Typography>
       </Paper>
-      <Paper className={classes.root}>Your rated Drinks are below</Paper>
+      <Paper className={classes.root}>
+        <Typography variant="h6" component="h6" color="primary">
+          Your rated Drinks are below
+        </Typography>
+      </Paper>
       <Paper className={classes.root}>
         <UserReviewList drinksIveRated={ratedDrinks} />
       </Paper>
       <Footer />
-    </div>
+    </Container>
   );
 }
 export default User;
