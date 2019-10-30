@@ -30,7 +30,13 @@ function User() {
       // const loggedStateGlobalUser = stateUser.id;
       // console.log(loggedStateGlobalUser);
       // const loadingUser = 2;
-      const loadingUser = stateUser.id;
+      let loadingUser = stateUser.id;
+      
+      if (stateUser.id === 0) {
+        loadingUser =2;
+      } else {
+        loadingUser = stateUser.id;
+      }
       // console.log(loadingUser);
       const loggedUser$ = await fetch(`/api/user/${loadingUser}`);
       const fetchedUser = await loggedUser$.json();
