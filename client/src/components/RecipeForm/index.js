@@ -22,7 +22,6 @@ export default function RecipeForm() {
     drinkInstructions: "enter description"
   });
 
-
   const handleNameChange = event => {
     console.log(event.target.value);
     const { value } = event.target;
@@ -32,7 +31,7 @@ export default function RecipeForm() {
     });
   };
   const handleDescriptionChange = event => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     const { value } = event.target;
     setDrinkInstructions({
       ...drinkInstructions,
@@ -44,7 +43,7 @@ export default function RecipeForm() {
     e.preventDefault();
     const theName = drinkName.drinkName;
     let loadingUser = stateUser.id;
-    
+
     if (stateUser.id === 0) {
       loadingUser = 3;
     } else {
@@ -64,7 +63,7 @@ export default function RecipeForm() {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(alert("drink recipe saved!"));
+    }).then(() => {});
   };
 
   useEffect(() => {}, []);
