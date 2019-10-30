@@ -76,7 +76,7 @@ export default function SearchForm() {
           <TextField
             required
             id="Search-id"
-            label="searchTerm"
+            label="Drink Name"
             // defaultValue="Search for a drink"
             // value={searchTerm.searchTerm}
             className={classes.textField}
@@ -87,11 +87,6 @@ export default function SearchForm() {
           />
           <Divider />
         </form>
-      </Paper>
-      <Paper className={classes.root}>
-        <Typography variant="h4" component="h1" color="secondary">
-          Results are below
-        </Typography>
       </Paper>
       <Paper className={classes.root}>
       <DrinkCardList barMenu={searchResult} />

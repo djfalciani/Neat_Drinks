@@ -86,15 +86,15 @@ export default function DrinkReview() {
       <LogoText />
 
       <Paper className={classes.root}>
-        <Typography variant="h5" component="h1" color="error">
+        <Typography variant="h3" component="h3" color="primary">
           {drink.dislpay_name}
         </Typography>
-        <Typography align="right" variant="h7" component="h5" color="secondary">
+        <Typography align="right" variant="h5" component="h5" color="secondary">
           from {drinkMaker.display_name}
         </Typography>
       </Paper>
       <Paper className={classes.root}>
-        <Typography align="right" variant="h7" component="h7" color="error">
+        <Typography align="right" variant="h7" component="h7">
           {drink.instruction}
         </Typography>
       </Paper>
@@ -102,7 +102,7 @@ export default function DrinkReview() {
         <ReviewForm />
       </Paper>
       <Paper className={classes.root}>
-        Cocktail Average
+        Cocktail Average Rating
         <Typography align="right" variant="h2" component="h2" color="secondary">
           {drinkAverage.avg}
         </Typography>

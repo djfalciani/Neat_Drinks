@@ -22,8 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function LoginForm() {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-  });
+  const [values, setValues] = React.useState({});
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
@@ -43,7 +42,10 @@ export default function LoginForm() {
         autoComplete="email"
         margin="normal"
         variant="outlined"
+        value={values.email}
+        onChange={handleChange("email")}
       />
+
       <TextField
         id="outlined-password-input"
         label="Password"
@@ -53,6 +55,8 @@ export default function LoginForm() {
         fullWidth
         margin="normal"
         variant="outlined"
+        value={values.password}
+        onChange={handleChange("password")}
       />
     </form>
   );
