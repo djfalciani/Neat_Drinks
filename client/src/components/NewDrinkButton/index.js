@@ -15,10 +15,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function NewDrinkButton() {
-  const [_, dispatch] = useUserContext();
 
   const classes = useStyles();
-  const history = useHistory();
+
   const handleSubmit = e => {
     e.preventDefault();
   };

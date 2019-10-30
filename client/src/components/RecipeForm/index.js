@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function RecipeForm() {
   const classes = useStyles();
+  // eslint-disable-next-line
   const [stateUser, dispatch] = useUserContext();
 
   const [drinkName, setDrinkName] = useState({ drinkName: "" });
