@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { width } from "@material-ui/system";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
   },
   input: {
-    display: "none"
+    display: "inline"
   }
 }));
 
@@ -25,9 +24,8 @@ export default function SubmitButton() {
       <Button
         className={classes.root}
         variant="contained"
-        fullWidth
+        // fullWidth
         color="primary"
-        // className={classes.button}
       >
         Login
       </Button>

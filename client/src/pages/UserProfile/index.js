@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
 import UserReviewList from "../../components/UserReviewList";
-
 import { makeStyles } from "@material-ui/core/styles";
-
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
@@ -26,10 +24,7 @@ function User() {
 
   useEffect(() => {
     async function fetchData() {
-      // Get the user info
-      // const loggedStateGlobalUser = stateUser.id;
-      // console.log(loggedStateGlobalUser);
-      // const loadingUser = 2;
+      // Get the user info from Global State. if we don't have an object just hard code to 2 for now...
       let loadingUser = stateUser.id;
       
       if (stateUser.id === 0) {
@@ -54,7 +49,6 @@ function User() {
 
   return (
     <div>
-      {/* {console.log("hi")} */}
       <LogoText />
       <Paper className={classes.root}>
         <Typography variant="h5" component="h1" color="primary">

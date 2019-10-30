@@ -8,8 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import DrinkCardList from "../../components/DrinkCardList";
-// import DrinkCardList from "../../components/DrinkCardList";
-// import { typography } from "@material-ui/system";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -70,8 +68,6 @@ export default function BarProfile() {
           <NewDrinkButton />
         </Grid>
       </Paper>
-
-      <Paper className={classes.root}>{/* <DrinkCardList /> */}</Paper>
 
       <Footer />
     </div>

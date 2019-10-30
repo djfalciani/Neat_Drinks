@@ -14,9 +14,6 @@ const useStyles = makeStyles(theme => ({
   dense: {
     marginTop: theme.spacing(2)
   },
-  menu: {
-    // width: "200"
-  },
   notchedOutline: {
     borderWidth: "1px",
     borderColor: "green !important"
@@ -26,10 +23,6 @@ const useStyles = makeStyles(theme => ({
 export default function LoginForm() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    name: "Cat in the Hat",
-    age: "",
-    multiline: "Controlled",
-    currency: "EUR"
   });
 
   const handleChange = name => event => {

@@ -5,15 +5,8 @@ import DrinkReviewCard from "../DrinkReviewCard";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper
-  },
-  gridList: {
-    width: 500,
-    height: 450
+    padding: theme.spacing(3, 2),
+    margin: 3
   }
 }));
 
@@ -21,8 +14,6 @@ export default function DrinkReviewList(props) {
   const classes = useStyles();
   const arr = props.reviews;
   // console.log(arr);
-
- 
 
   return (
     <List className={classes.root}>

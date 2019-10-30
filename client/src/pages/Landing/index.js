@@ -145,7 +145,7 @@ export default function Landing() {
       {/* <LoginForm /> */}
       {/* <SubmitButton />{<br></br>} */}
       <DialogBox />
-        <Footer />
+      <Footer />
     </div>
   );
 }
