@@ -1,4 +1,5 @@
 // import React from "react";
+// eslint-disable-next-line
 import React, { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -37,6 +38,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Landing() {
+  // eslint-disable-next-line
   const [_, dispatch] = useUserContext();
   // DJF - brining in style themes...
   const classes = useStyles();
@@ -70,7 +72,7 @@ export default function Landing() {
         });
 
         // Evaluate the User Type value and route accordingly...
-        if (dbAuthUser.data.UserTypeId = 2) {
+        if (dbAuthUser.data.UserTypeId === 2) {
           // Move user to their profile...
           // history.push("/user/" + dbAuthUser.data.id)
           history.push("/user")

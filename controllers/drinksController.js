@@ -1,9 +1,8 @@
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
 // Requiring our models
 var db = require("../models");
-
 
 module.exports = {
   // GET route for getting all Ingredients

@@ -2,31 +2,53 @@ import React, { Link } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-
 import Avatar from "@material-ui/core/Avatar";
 import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
+
+import { useHistory } from "react-router-dom";
+
+import { useUserContext } from "../../utils/GlobalState";
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
-    margin: 3,
+    margin: 3
   }
 }));
 
-export default function UserDrinkReviewCard(props) {
+export default function DrinkReviewCard(props) {
   const classes = useStyles();
-  // console.log(props);
+  const history = useHistory();
+  const [state, dispatch] = useUserContext();
+
+  const handleClick = () => {
+    // alert(`you clicked the drink card-${props.id}`);
+    // console.log(props.id);
+    let newDrinkId = props.id;
+    // dispatches...
+    dispatch({
+      type: "setdrink",
+      drinkId: newDrinkId
+    });
+
+    dispatch({
+      type: "setdrinkowner",
+      drinkOwner: 3
+    });
+
+    history.push(`/drinkreview`);
+  };
 
   return (
-    <ListItem alignItems="flex-start" className={classes.root}>
-      {/* <Link to={`/drink/${props.id}`}> */}
+    <ListItem alignItems="flex-start">
       <ListItemAvatar>
         <Avatar
-          alt=""
           src="https://neat-drinks.herokuapp.com/images/neat-Logo-abstract.png"
+          data-id={props.id}
+          onClick={handleClick}
         />
       </ListItemAvatar>
-      {/* </Link> */}
 
       <ListItemText
         primary={props.drinkName}
@@ -43,7 +65,6 @@ export default function UserDrinkReviewCard(props) {
           </React.Fragment>
         }
       />
-
       <ListItemAvatar>{props.drinkRating}</ListItemAvatar>
     </ListItem>
   );

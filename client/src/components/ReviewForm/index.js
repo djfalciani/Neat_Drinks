@@ -1,30 +1,9 @@
 import React, { useEffect, useState } from "react";
-import clsx from 'clsx';
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import InputAdornment from '@material-ui/core/InputAdornment';
-import MenuItem from '@material-ui/core/MenuItem';
-import RatingSlider from "../../components/RatingSlider";
+
 import { useUserContext } from "../../utils/GlobalState";
-
-const ranges = [
-  {
-    value: 1,
-    label: '1',
-  },
-  {
-    value: 2,
-    label: 2,
-  },
-  {
-    value: '51-100',
-    label: '51 to 100',
-  },
-];
-
-
-
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,19 +15,22 @@ const useStyles = makeStyles(theme => ({
 export default function ReviewForm() {
   const [state, dispatch] = useUserContext();
   const classes = useStyles();
+  // eslint-disable-next-line
+  // const [stateUser, dispatch] = useUserContext();
+
   const [userReview, setUserReview] = useState({
     Rating: 0,
     Review: ""
   });
 
-  const handleRatingChange = event =>{
-    const { name, value } = event.target;
+  const handleRatingChange = event => {
+    const { value } = event.target;
     const numRating = parseInt(value);
     setUserReview({
       ...userReview,
       Rating: numRating
     });
-  }
+  };
 
   const handleReviewChange = event => {
     console.log(event.target.value);
@@ -80,9 +62,7 @@ export default function ReviewForm() {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(
-      alert("drink review saved!")
-    );
+    }).then(() => {});
   };
 
   useEffect(() => {}, []);
@@ -120,19 +100,13 @@ export default function ReviewForm() {
         name="Rating"
         margin="normal"
         label="Your Score"
-        className={(classes.textField)}
+        className={classes.textField}
         value={userReview.Rating}
         onChange={handleRatingChange}
         // InputProps={{
         //   startAdornment: <InputAdornment position="start">Drink Score</InputAdornment>
         // }}
-      >
-        {ranges.map(option => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-      </TextField>
+      ></TextField>
 
       <Button
         className={classes.button}

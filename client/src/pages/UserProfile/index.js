@@ -1,21 +1,18 @@
-
 import React, { useEffect, useState } from "react";
 
-// * Material UI 
+// * Material UI
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
 
 // * Components
 import LogoText from "../../components/LogoText";
 import Footer from "../../components/Footer";
 import UserReviewList from "../../components/UserReviewList";
 
-
 // DJF - attempting to use context to access a Global Store...
-import { useUserContext } from "../../utils/GlobalState"
+import { useUserContext } from "../../utils/GlobalState";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,9 +32,9 @@ function User() {
     async function fetchData() {
       // Get the user info from Global State. if we don't have an object just hard code to 2 for now...
       let loadingUser = stateUser.id;
-      
+
       if (stateUser.id === 0) {
-        loadingUser =2;
+        loadingUser = 2;
       } else {
         loadingUser = stateUser.id;
       }
